@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishtey Khoon Ke - Blood Donation</title>
+    <title>Home - Rishtey Khoon Ke | Blood Donation</title>
     <style>
         /* Reset and Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* Color Variables from Your Logo */
         :root {
             --logo-red: #dc2626;
             --logo-dark-red: #b91c1c;
@@ -90,7 +89,8 @@
             border-radius: 25px;
         }
         
-        .nav a:hover { 
+        .nav a:hover,
+        .nav a.active { 
             color: var(--logo-red);
             background: var(--logo-white);
             transform: translateY(-2px);
@@ -125,23 +125,6 @@
             border-bottom: 5px solid var(--logo-gold);
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 20s infinite linear;
-        }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-100px, -100px) rotate(360deg); }
-        }
-        
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
@@ -154,7 +137,6 @@
             margin-bottom: 1.5rem;
             font-weight: 800;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            color: var(--logo-white);
         }
         
         .hero p {
@@ -180,8 +162,6 @@
             font-weight: bold;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
             border: 2px solid var(--logo-white);
         }
         
@@ -202,7 +182,6 @@
         .btn-outline:hover {
             background: var(--logo-white);
             color: var(--logo-red);
-            border-color: var(--logo-white);
         }
         
         /* Main Content */
@@ -256,18 +235,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             border: 2px solid var(--logo-light-bg);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
         }
         
         .feature-card:hover {
@@ -287,7 +254,6 @@
             margin: 0 auto 1.5rem;
             color: var(--logo-white);
             font-size: 2rem;
-            border: 3px solid var(--logo-light-bg);
         }
         
         .feature-card h3 {
@@ -299,82 +265,6 @@
         .feature-card p {
             color: #666;
             line-height: 1.6;
-        }
-        
-        /* Form Styles */
-        .form-container {
-            background: var(--logo-white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
-            border: 2px solid var(--logo-light-bg);
-        }
-        
-        .form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
-            border-radius: 20px 20px 0 0;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        .form-full {
-            grid-column: 1 / -1;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--logo-red);
-            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-        }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
-            color: var(--logo-white);
-            border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
-            background: linear-gradient(135deg, var(--logo-dark-red), var(--logo-red));
-            border-color: var(--logo-gold);
         }
         
         /* Stats Section */
@@ -394,17 +284,6 @@
             border: 2px solid var(--logo-light-bg);
         }
         
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
-            border-radius: 15px 15px 0 0;
-        }
-        
         .stat-number {
             font-size: 3rem;
             font-weight: bold;
@@ -416,6 +295,31 @@
             color: #666;
             font-size: 1.1rem;
             margin-top: 0.5rem;
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .quick-link-card {
+            background: var(--logo-white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 2px solid var(--logo-light-bg);
+        }
+        
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.1);
+            border-color: var(--logo-red);
         }
         
         /* Footer */
@@ -469,13 +373,6 @@
             color: var(--logo-white);
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 5px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-btn:hover {
-            background: rgba(255,255,255,0.1);
         }
         
         /* Responsive Design */
@@ -517,10 +414,6 @@
                 font-size: 2rem;
             }
             
-            .form-container {
-                padding: 2rem 1.5rem;
-            }
-            
             .logo {
                 font-size: 1.5rem;
             }
@@ -552,7 +445,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="https://i.ibb.co/GQ6WJ5QH/New-Project.png" alt="Rishtey Khoon Ke Logo" class="logo-img">
                 <div>
                     <div>Rishtey Khoon Ke</div>
@@ -561,12 +454,10 @@
             </a>
             
             <nav class="nav" id="mainNav">
-                <a href="#about">About</a>
-                <a href="#importance">Importance</a>
-                <a href="#process">Process</a>
-                <a href="#register">Register</a>
-                <a href="#contact">Contact</a>
-                <a href="#register" class="donate-btn">Donate Now</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="donation.html">Donation Info</a>
+                <a href="donors.html">Find Donors</a>
+                <a href="donors.html" class="donate-btn">Urgent Need?</a>
             </nav>
             
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
@@ -579,8 +470,8 @@
             <h1>Give the Gift of Life</h1>
             <p>Every blood donation can save up to three lives. Join thousands of heroes in our mission to support patients in critical need.</p>
             <div class="hero-buttons">
-                <a href="#register" class="btn">Become a Donor</a>
-                <a href="#process" class="btn btn-outline">Learn How</a>
+                <a href="donors.html" class="btn">Find Blood Donors</a>
+                <a href="donation.html" class="btn btn-outline">Learn About Donation</a>
             </div>
         </div>
     </section>
@@ -609,127 +500,61 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section section-dark">
+    <!-- Quick Links Section -->
+    <section class="section section-dark">
         <div class="container">
-            <h2 class="section-title">Why Blood Donation Matters</h2>
-            <p class="section-subtitle">Your single donation can make the difference between life and death for someone in need</p>
+            <h2 class="section-title">Quick Access</h2>
+            <p class="section-subtitle">Get the information you need quickly</p>
             
-            <div class="features">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">💪</div>
-                    <h3>Who Can Donate?</h3>
-                    <p>Healthy individuals aged 18-65, weighing at least 50kg, with no serious health conditions. Regular health check-ups ensure donor safety.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🩺</div>
-                    <h3>Health Benefits</h3>
-                    <p>Regular donation helps maintain healthy iron levels, reduces cardiovascular risk, and provides free health screening for donors.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">❤️</div>
-                    <h3>Save Lives</h3>
-                    <p>Your donation helps accident victims, surgery patients, cancer fighters, and those with blood disorders. Be someone's hero today.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="section section-light">
-        <div class="container">
-            <h2 class="section-title">Simple Donation Process</h2>
-            <p class="section-subtitle">From registration to donation - we make the entire process smooth and comfortable</p>
-            
-            <div class="features">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">1</div>
-                    <h3>Register Online</h3>
-                    <p>Fill our simple form with basic details. It takes less than 2 minutes to complete your registration.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">2</div>
-                    <h3>Health Screening</h3>
-                    <p>Quick health check-up to ensure you're eligible to donate. We maintain highest safety standards.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">3</div>
-                    <h3>Donate Blood</h3>
-                    <p>Comfortable donation process takes only 10-15 minutes. Our trained staff ensures painless experience.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">4</div>
-                    <h3>Refresh & Recover</h3>
-                    <p>Enjoy refreshments and rest. Your body replaces the donated blood within 24-48 hours.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Form -->
-    <section id="register" class="section section-dark">
-        <div class="container">
-            <h2 class="section-title">Join Our Life-Saving Mission</h2>
-            <p class="section-subtitle">Register as a blood donor and become someone's unexpected hero</p>
-            
-            <div class="form-container fade-in">
-                <form class="form-grid" action="https://docs.google.com/forms/d/e/1FAIpQLScZDYFW-KWWzytZr2K416ZMGl-tqfPPVhj3gnl0G-pFkWHsXA/formResponse" method="POST" target="_blank">
-                    <input class="form-input" type="text" name="entry.1077166742" placeholder="Full Name" required>
-                    <input class="form-input" type="tel" name="entry.1729316888" placeholder="Phone Number" required>
-                    <input class="form-input" type="email" name="entry.123456789" placeholder="Email Address">
-                    <input class="form-input" type="number" name="entry.987654321" placeholder="Age" min="18" max="65">
-                    <select class="form-input" name="entry.2136854388" required>
-                        <option value="">Select Blood Group</option>
-                        <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
-                        <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
-                    </select>
-                    <select class="form-input" name="entry.1453907665" required>
-                        <option value="">Registering As</option>
-                        <option>Blood Donor</option>
-                        <option>Need Blood</option>
-                        <option>Both</option>
-                    </select>
-                    <input class="form-input form-full" type="text" name="entry.1473301011" placeholder="City / Location" required>
-                    <textarea class="form-input form-full" name="entry.555555555" placeholder="Additional Message (Optional)" rows="3"></textarea>
-                    <div class="form-full">
-                        <button type="submit" class="submit-btn">Join as Life Saver</button>
-                    </div>
-                </form>
+            <div class="quick-links">
+                <a href="donation.html" class="quick-link-card fade-in">
+                    <div class="feature-icon">🩸</div>
+                    <h3>Donation Process</h3>
+                    <p>Learn about blood donation eligibility, process, and benefits</p>
+                </a>
                 
-                <p style="text-align: center; margin-top: 2rem; color: #666;">
-                    <small>Or fill the form directly: 
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScZDYFW-KWWzytZr2K416ZMGl-tqfPPVhj3gnl0G-pFkWHsXA/viewform" 
-                           target="_blank" 
-                           style="color: var(--logo-red); font-weight: bold;">
-                            Open Google Form
-                        </a>
-                    </small>
-                </p>
+                <a href="donors.html" class="quick-link-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Find Donors</h3>
+                    <p>Search for blood donors in your area or register as a donor</p>
+                </a>
+                
+                <a href="donation.html#eligibility" class="quick-link-card fade-in">
+                    <div class="feature-icon">✅</div>
+                    <h3>Eligibility Check</h3>
+                    <p>Check if you're eligible to donate blood</p>
+                </a>
+                
+                <a href="donors.html#emergency" class="quick-link-card fade-in">
+                    <div class="feature-icon">🚨</div>
+                    <h3>Emergency Help</h3>
+                    <p>Immediate assistance for urgent blood requirements</p>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section section-light">
+    <!-- Features Section -->
+    <section class="section section-light">
         <div class="container">
-            <h2 class="section-title">We're Here to Help</h2>
-            <p class="section-subtitle">Contact us for any questions or emergency blood requirements</p>
+            <h2 class="section-title">Why Choose Us?</h2>
+            <p class="section-subtitle">We make blood donation simple, safe, and accessible for everyone</p>
             
             <div class="features">
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">📞</div>
-                    <h3>Emergency Helpline</h3>
-                    <p>+92 300 123 4567<br>Available 24/7 for urgent blood requirements</p>
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe & Secure</h3>
+                    <p>All our donors are verified and follow strict health safety protocols to ensure safe blood transfusion.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">✉️</div>
-                    <h3>Email Support</h3>
-                    <p>help@rishteykhoonke.org<br>We respond within 2 hours</p>
+                    <div class="feature-icon">⚡</div>
+                    <h3>Quick Response</h3>
+                    <p>Emergency blood requests are processed within minutes with our extensive donor network.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">🏥</div>
-                    <h3>Visit Centers</h3>
-                    <p>Multiple locations across major cities. Find the nearest donation center.</p>
+                    <div class="feature-icon">🌍</div>
+                    <h3>Nationwide Network</h3>
+                    <p>Connect with donors across multiple cities and regions for all blood types and requirements.</p>
                 </div>
             </div>
         </div>
@@ -746,10 +571,10 @@
                 
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <p><a href="#about">About Us</a></p>
-                    <p><a href="#process">Donation Process</a></p>
-                    <p><a href="#register">Become Donor</a></p>
-                    <p><a href="#contact">Contact</a></p>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="donation.html">Donation Info</a></p>
+                    <p><a href="donors.html">Find Donors</a></p>
+                    <p><a href="donors.html#emergency">Emergency</a></p>
                 </div>
                 
                 <div class="footer-section">
@@ -774,7 +599,7 @@
             nav.classList.toggle('active');
         }
         
-        // Smooth Scrolling
+        // Smooth Scrolling for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -805,17 +630,8 @@
         }, observerOptions);
         
         // Observe all feature cards and stats
-        document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .stat-card, .quick-link-card').forEach(el => {
             observer.observe(el);
-        });
-        
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const form = this;
-            setTimeout(() => {
-                form.reset();
-                alert('Thank you for registering! We will contact you soon.');
-            }, 1000);
         });
     </script>
 </body>
