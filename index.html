@@ -94,7 +94,7 @@
             transform: translateY(-2px);
         }
         
-        /* Urgent Need Button - Same style as other nav buttons */
+        /* Urgent Need Button - Same style as other nav buttons BUT ALWAYS VISIBLE */
         .donate-btn {
             background: var(--logo-white);
             color: var(--logo-red);
@@ -103,6 +103,10 @@
             font-weight: 500;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
+            /* FORCE VISIBILITY */
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         .donate-btn:hover {
@@ -412,6 +416,13 @@
             
             .nav.active {
                 display: flex;
+            }
+            
+            /* MOBILE MENU MEIN BHI BUTTON VISIBLE */
+            .nav.active .donate-btn {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
             
             .mobile-menu-btn {
