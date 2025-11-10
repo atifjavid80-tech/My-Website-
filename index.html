@@ -71,7 +71,7 @@
             color: var(--logo-gold);
         }
         
-        /* Navigation - Button Always Visible */
+        /* Navigation - Button ALWAYS VISIBLE */
         .nav { 
             display: flex;
             gap: 2rem;
@@ -102,9 +102,7 @@
             font-weight: bold;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
-            opacity: 1 !important;
-            visibility: visible !important;
-            display: block !important;
+            /* ALWAYS VISIBLE - No opacity/visibility tricks */
         }
         
         .donate-btn:hover {
@@ -115,10 +113,10 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section with NEW Background Image */
+        /* Hero Section with BETTER Background Image */
         .hero {
             background: linear-gradient(rgba(220, 38, 38, 0.7), rgba(185, 28, 28, 0.75)), 
-                        url('https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+                        url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -490,7 +488,7 @@
         </div>
     </header>
 
-    <!-- Hero Section with NEW Background Image -->
+    <!-- Hero Section with BETTER Background Image -->
     <section class="hero">
         <div class="hero-content fade-in">
             <h1>Give the Gift of Life</h1>
