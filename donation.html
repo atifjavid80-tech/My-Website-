@@ -9,8 +9,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --logo-red: #9F0C11;
-            --logo-dark-red: #7a090d;
+            --logo-red: #dc2626;
+            --logo-dark-red: #b91c1c;
             --logo-gold: #ffd700;
             --logo-white: #ffffff;
             --logo-light-bg: #fef2f2;
@@ -71,10 +71,10 @@
             color: var(--logo-gold);
         }
         
-        /* Navigation - All buttons same style */
+        /* Navigation - Button Always Visible */
         .nav { 
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             align-items: center;
         }
         
@@ -94,15 +94,17 @@
             transform: translateY(-2px);
         }
         
-        /* Urgent Need Button - Same style as other nav buttons BUT ALWAYS VISIBLE */
         .donate-btn {
             background: var(--logo-white);
             color: var(--logo-red);
-            padding: 8px 16px;
+            padding: 12px 24px;
             border-radius: 25px;
-            font-weight: 500;
+            font-weight: bold;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
         }
         
         .donate-btn:hover {
@@ -113,35 +115,26 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section with PROPER BACKGROUND IMAGE */
+        /* Hero Section with NEW Background Image */
         .hero {
-            background: 
-                linear-gradient(90deg, rgba(159, 12, 17, 0.85) 40%, rgba(159, 12, 17, 0.5) 100%),
-                url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background: linear-gradient(rgba(220, 38, 38, 0.7), rgba(185, 28, 28, 0.75)), 
+                        url('https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
-            background-position: right center;
+            background-position: center;
             background-repeat: no-repeat;
             color: var(--logo-white);
             padding: 140px 2rem 80px;
+            text-align: center;
             position: relative;
             overflow: hidden;
             border-bottom: 5px solid var(--logo-gold);
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
         }
         
         .hero-content {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
-            width: 100%;
-        }
-        
-        .hero-text {
-            max-width: 600px;
-            text-align: left;
         }
         
         .hero h1 {
@@ -149,7 +142,6 @@
             margin-bottom: 1.5rem;
             font-weight: 800;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            line-height: 1.2;
         }
         
         .hero p {
@@ -163,7 +155,7 @@
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: flex-start;
+            justify-content: center;
             flex-wrap: wrap;
         }
         
@@ -255,7 +247,7 @@
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(159, 12, 17, 0.15);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
             border-color: var(--logo-red);
         }
         
@@ -313,11 +305,11 @@
             margin-top: 0.5rem;
         }
         
-        /* Quick Links - 4 BOXES IN ONE LINE */
+        /* Quick Links */
         .quick-links {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
         
@@ -330,16 +322,11 @@
             color: inherit;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-light-bg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 250px;
         }
         
         .quick-link-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(159, 12, 17, 0.1);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.1);
             border-color: var(--logo-red);
         }
         
@@ -425,19 +412,6 @@
             
             .hero {
                 padding: 120px 1.5rem 60px;
-                text-align: center;
-                background: 
-                    linear-gradient(90deg, rgba(159, 12, 17, 0.7) 30%, rgba(159, 12, 17, 0.4) 100%),
-                    url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
-                background-size: cover;
-                background-position: right center;
-                background-repeat: no-repeat;
-                min-height: 70vh;
-            }
-            
-            .hero-text {
-                text-align: center;
-                max-width: 100%;
             }
             
             .hero h1 {
@@ -446,21 +420,6 @@
             
             .hero p {
                 font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            /* Quick Links - Mobile mein 2 boxes per line */
-            .quick-links {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .quick-link-card {
-                padding: 1.5rem;
-                min-height: 200px;
             }
             
             .section-title {
@@ -476,40 +435,18 @@
                 height: 60px;
             }
             
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .btn {
                 width: 250px;
                 text-align: center;
             }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 480px) {
-            .hero {
-                background: 
-                    linear-gradient(90deg, rgba(159, 12, 17, 0.6) 20%, rgba(159, 12, 17, 0.3) 100%),
-                    url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
-                background-size: cover;
-                background-position: right center;
-                background-repeat: no-repeat;
-            }
             
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            /* Quick Links - Very small screens pe 1 box per line */
-            .quick-links {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .quick-link-card {
-                padding: 1.5rem;
-                min-height: 180px;
+            .donate-btn {
+                margin-top: 0.5rem;
             }
         }
         
@@ -546,23 +483,21 @@
                 <a href="index.html" class="active">Home</a>
                 <a href="donation.html">Donation Info</a>
                 <a href="donors.html">Find Donors</a>
-                <a href="donors.html" class="donate-btn">Urgent Need</a>
+                <a href="donors.html" class="donate-btn">Urgent Need?</a>
             </nav>
             
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </header>
 
-    <!-- Hero Section with PROPER BACKGROUND IMAGE -->
+    <!-- Hero Section with NEW Background Image -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text fade-in">
-                <h1>Give the Gift of Life</h1>
-                <p>Every blood donation can save up to three lives. Join thousands of heroes in our mission to support patients in critical need.</p>
-                <div class="hero-buttons">
-                    <a href="donors.html" class="btn">Find Blood Donors</a>
-                    <a href="donation.html" class="btn btn-outline">Learn About Donation</a>
-                </div>
+        <div class="hero-content fade-in">
+            <h1>Give the Gift of Life</h1>
+            <p>Every blood donation can save up to three lives. Join thousands of heroes in our mission to support patients in critical need.</p>
+            <div class="hero-buttons">
+                <a href="donors.html" class="btn">Find Blood Donors</a>
+                <a href="donation.html" class="btn btn-outline">Learn About Donation</a>
             </div>
         </div>
     </section>
@@ -591,7 +526,7 @@
         </div>
     </section>
 
-    <!-- Quick Links Section - 4 BOXES IN ONE LINE -->
+    <!-- Quick Links Section -->
     <section class="section section-dark">
         <div class="container">
             <h2 class="section-title">Quick Access</h2>
