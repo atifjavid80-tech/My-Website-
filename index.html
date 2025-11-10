@@ -317,11 +317,11 @@
             margin-top: 0.5rem;
         }
         
-        /* Quick Links */
+        /* Quick Links - 4 BOXES IN ONE LINE */
         .quick-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr); /* 4 boxes in one line */
+            gap: 1.5rem;
             margin-top: 3rem;
         }
         
@@ -334,6 +334,11 @@
             color: inherit;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-light-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
         }
         
         .quick-link-card:hover {
@@ -436,7 +441,7 @@
                     linear-gradient(90deg, rgba(220, 38, 38, 0.9) 30%, rgba(220, 38, 38, 0.7) 100%),
                     url('https://i.ibb.co/5hNtMKQL/front-view-woman-holding-paper-heart-with-heartbeat.jpg');
                 background-size: cover;
-                background-position: right center; /* MOBILE MEIN BHI RIGHT SIDE PE RAHEGI */
+                background-position: right center;
                 background-repeat: no-repeat;
                 min-height: 70vh;
             }
@@ -456,6 +461,17 @@
             
             .hero-buttons {
                 justify-content: center;
+            }
+            
+            /* Quick Links - Mobile mein 2 boxes per line */
+            .quick-links {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .quick-link-card {
+                padding: 1.5rem;
+                min-height: 200px;
             }
             
             .section-title {
@@ -484,7 +500,7 @@
                     linear-gradient(rgba(220, 38, 38, 0.9), rgba(185, 28, 28, 0.9)),
                     url('https://i.ibb.co/5hNtMKQL/front-view-woman-holding-paper-heart-with-heartbeat.jpg');
                 background-size: cover;
-                background-position: center center; /* Very small screens pe center */
+                background-position: center center;
                 background-repeat: no-repeat;
             }
             
@@ -494,6 +510,17 @@
             
             .hero p {
                 font-size: 1rem;
+            }
+            
+            /* Quick Links - Very small screens pe 1 box per line */
+            .quick-links {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .quick-link-card {
+                padding: 1.5rem;
+                min-height: 180px;
             }
         }
         
@@ -575,7 +602,7 @@
         </div>
     </section>
 
-    <!-- Quick Links Section -->
+    <!-- Quick Links Section - 4 BOXES IN ONE LINE -->
     <section class="section section-dark">
         <div class="container">
             <h2 class="section-title">Quick Access</h2>
