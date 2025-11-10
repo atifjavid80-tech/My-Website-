@@ -106,8 +106,17 @@
             border-radius: 20px;
             font-weight: bold;
             border: 2px solid var(--logo-white);
-            opacity: 1 !important;
-            visibility: visible !important;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            right: 2rem;
+        }
+        
+        .nav:hover .donate-btn {
+            opacity: 1;
+            visibility: visible;
+            position: static;
         }
         
         .donate-btn:hover {
@@ -267,12 +276,18 @@
             margin-top: 0.5rem;
         }
         
-        /* Process Steps */
-        .process-steps {
+        /* New Process Steps Grid - 2x2 Layout */
+        .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
             margin: 2rem 0;
+        }
+        
+        .process-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
         
         .process-step {
@@ -284,6 +299,9 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             border: 1px solid var(--logo-light-bg);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .process-step:hover {
@@ -307,19 +325,17 @@
             font-weight: bold;
             font-size: 1.1rem;
             border: 3px solid var(--logo-white);
+            z-index: 2;
         }
         
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--logo-red);
-            border-radius: 50%;
+        .step-image {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            color: var(--logo-white);
-            font-size: 1.5rem;
+            font-size: 2.5rem;
         }
         
         .process-step h3 {
@@ -334,38 +350,82 @@
             font-size: 0.95rem;
         }
         
-        /* Eligibility */
-        .eligibility-grid {
+        /* New Eligibility Grid - 2x2 Layout */
+        .eligibility-grid-new {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
             margin: 2rem 0;
         }
         
-        .eligibility-item {
+        .eligibility-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .eligibility-card {
             background: var(--logo-white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--logo-red);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid var(--logo-light-bg);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .eligibility-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.1);
+        .eligibility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
         }
         
-        .eligibility-item h3 {
+        .eligibility-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: var(--logo-light-bg);
+            border-radius: 50%;
             color: var(--logo-red);
-            margin-bottom: 0.8rem;
+        }
+        
+        .eligibility-card h3 {
+            color: var(--logo-red);
+            margin-bottom: 1rem;
             font-size: 1.2rem;
         }
         
-        .eligibility-item p {
+        .eligibility-card p {
             color: #666;
             line-height: 1.5;
             font-size: 0.95rem;
+        }
+        
+        /* Process with Image Section */
+        .process-with-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        
+        .process-image {
+            text-align: center;
+        }
+        
+        .process-illustration {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         /* Features */
@@ -481,6 +541,13 @@
                 display: flex;
             }
             
+            .donate-btn {
+                opacity: 1;
+                visibility: visible;
+                position: static;
+                margin-top: 0.5rem;
+            }
+            
             .mobile-menu-btn {
                 display: block;
             }
@@ -506,10 +573,17 @@
                 height: 45px;
             }
             
-            .process-steps,
-            .eligibility-grid,
+            .process-grid,
+            .eligibility-grid-new,
+            .process-with-image,
             .features {
                 grid-template-columns: 1fr;
+            }
+            
+            .process-row,
+            .eligibility-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
             .hero-buttons {
@@ -583,76 +657,109 @@
         </div>
     </section>
 
-    <!-- Process Steps -->
+    <!-- Process Steps with 2x2 Grid -->
     <section id="process" class="section section-dark">
         <div class="container">
             <h2 class="section-title">Simple 4-Step Process</h2>
             <p class="section-subtitle">From registration to recovery - we make the entire journey smooth</p>
             
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="feature-icon">📝</div>
-                    <h3>Registration</h3>
-                    <p>Complete simple registration with basic information and health screening.</p>
+            <div class="process-grid">
+                <div class="process-row">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-image">📝</div>
+                        <h3>Registration</h3>
+                        <p>Complete simple registration with basic information and health screening.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-image">🩺</div>
+                        <h3>Health Check</h3>
+                        <p>Professional medical staff checks hemoglobin levels and blood pressure.</p>
+                    </div>
                 </div>
                 
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="feature-icon">🩺</div>
-                    <h3>Health Check</h3>
-                    <p>Professional medical staff checks hemoglobin levels and blood pressure.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="feature-icon">💉</div>
-                    <h3>Blood Collection</h3>
-                    <p>Comfortable donation takes only 10-15 minutes using sterile equipment.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="feature-icon">🍪</div>
-                    <h3>Refresh & Recover</h3>
-                    <p>Enjoy refreshments while resting. Body replaces blood within 24-48 hours.</p>
+                <div class="process-row">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-image">💉</div>
+                        <h3>Blood Collection</h3>
+                        <p>Comfortable donation takes only 10-15 minutes using sterile equipment.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-image">🍪</div>
+                        <h3>Refresh & Recover</h3>
+                        <p>Enjoy refreshments while resting. Body replaces blood within 24-48 hours.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Eligibility Section -->
-    <section id="eligibility" class="section section-light">
+    <!-- Process with Illustration -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="process-with-image">
+                <div class="process-image">
+                    <div class="step-image" style="font-size: 8rem; color: var(--logo-red);">💉</div>
+                </div>
+                <div>
+                    <h2 class="section-title" style="text-align: left;">Blood Donation Process</h2>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.7;">
+                        Our blood donation process is designed to be safe, comfortable, and efficient. From the moment you arrive until you leave, our trained medical staff ensures your well-being at every step.
+                    </p>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.7;">
+                        The actual blood collection takes only 10-15 minutes, while the entire process from registration to recovery typically takes about 45-60 minutes. All equipment used is sterile, disposable, and used only once to ensure maximum safety.
+                    </p>
+                    <a href="#eligibility" class="btn">Check Your Eligibility</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Section with 2x2 Grid -->
+    <section id="eligibility" class="section section-dark">
         <div class="container">
             <h2 class="section-title">Donor Eligibility</h2>
             <p class="section-subtitle">Ensure you meet these requirements for safe donation</p>
             
-            <div class="eligibility-grid">
-                <div class="eligibility-item">
-                    <h3>✅ Age & Weight</h3>
-                    <p>18-65 years old, minimum 50 kg weight for safe donation.</p>
+            <div class="eligibility-grid-new">
+                <div class="eligibility-row">
+                    <div class="eligibility-card">
+                        <div class="eligibility-icon">👤</div>
+                        <h3>Age & Weight</h3>
+                        <p>18-65 years old, minimum 50 kg weight for safe donation.</p>
+                    </div>
+                    
+                    <div class="eligibility-card">
+                        <div class="eligibility-icon">💚</div>
+                        <h3>Health Status</h3>
+                        <p>Generally good health, free from infections and chronic diseases.</p>
+                    </div>
                 </div>
                 
-                <div class="eligibility-item">
-                    <h3>✅ Health Status</h3>
-                    <p>Generally good health, free from infections and chronic diseases.</p>
-                </div>
-                
-                <div class="eligibility-item">
-                    <h3>✅ Hemoglobin</h3>
-                    <p>Minimum 12.5 g/dL for women and 13.0 g/dL for men.</p>
-                </div>
-                
-                <div class="eligibility-item">
-                    <h3>✅ Lifestyle</h3>
-                    <p>No recent tattoos/piercings, safe practices, no IV drug use.</p>
+                <div class="eligibility-row">
+                    <div class="eligibility-card">
+                        <div class="eligibility-icon">🔬</div>
+                        <h3>Hemoglobin</h3>
+                        <p>Minimum 12.5 g/dL for women and 13.0 g/dL for men.</p>
+                    </div>
+                    
+                    <div class="eligibility-card">
+                        <div class="eligibility-icon">🚫</div>
+                        <h3>Lifestyle</h3>
+                        <p>No recent tattoos/piercings, safe practices, no IV drug use.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Health Benefits -->
-    <section class="section section-dark">
+    <section class="section section-light">
         <div class="container">
             <h2 class="section-title">Benefits of Donation</h2>
             <p class="section-subtitle">Donating blood saves lives and offers health advantages</p>
