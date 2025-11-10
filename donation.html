@@ -26,8 +26,8 @@
 
     <style>
         :root {
-            --logo-red: #dc2626;
-            --logo-dark-red: #b91c1c;
+            --logo-red: #9F0C11;
+            --logo-dark-red: #7a090d;
             --logo-gold: #ffd700;
             --logo-white: #ffffff;
             --logo-light-bg: #fef2f2;
@@ -106,10 +106,8 @@
             border-radius: 20px;
             font-weight: bold;
             border: 2px solid var(--logo-white);
-            transition: all 0.3s ease;
             opacity: 1 !important;
             visibility: visible !important;
-            display: block !important;
         }
         
         .donate-btn:hover {
@@ -117,18 +115,31 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section with Background Image - Less Opacity */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(220, 38, 38, 0.7), rgba(185, 28, 28, 0.75)), 
-                        url('https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
             color: var(--logo-white);
-            padding: 140px 2rem 80px;
+            padding: 120px 2rem 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-100px, -100px) rotate(360deg); }
         }
         
         .hero-content {
@@ -139,47 +150,44 @@
         }
         
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
             font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
             opacity: 0.95;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
         
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
         
         .btn {
             display: inline-block;
-            padding: 14px 32px;
+            padding: 12px 28px;
             background: var(--logo-white);
             color: var(--logo-red);
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             border: 2px solid var(--logo-white);
             transition: all 0.3s ease;
             text-shadow: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .btn:hover {
             background: var(--logo-gold);
             border-color: var(--logo-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
         }
         
         .btn-outline {
@@ -259,7 +267,7 @@
             margin-top: 0.5rem;
         }
         
-        /* New Process Steps Grid - 2x2 Layout */
+        /* Process Steps Grid - 2x2 Layout */
         .process-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -289,7 +297,7 @@
         
         .process-step:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
+            box-shadow: 0 8px 20px rgba(159, 12, 17, 0.15);
         }
         
         .step-number {
@@ -333,7 +341,7 @@
             font-size: 0.95rem;
         }
         
-        /* New Eligibility Grid - 2x2 Layout */
+        /* Eligibility Grid - 2x2 Layout */
         .eligibility-grid-new {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -362,7 +370,7 @@
         
         .eligibility-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
+            box-shadow: 0 8px 20px rgba(159, 12, 17, 0.15);
         }
         
         .eligibility-icon {
@@ -410,7 +418,20 @@
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
+            box-shadow: 0 8px 20px rgba(159, 12, 17, 0.15);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--logo-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--logo-white);
+            font-size: 1.5rem;
         }
         
         .feature-card h3 {
@@ -507,10 +528,6 @@
                 display: block;
             }
             
-            .hero {
-                padding: 120px 1.5rem 60px;
-            }
-            
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -550,7 +567,7 @@
             }
             
             .btn {
-                width: 220px;
+                width: 200px;
                 text-align: center;
             }
         }
@@ -579,11 +596,11 @@
         </div>
     </header>
 
-    <!-- Hero Section with Background Image - Less Opacity -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Blood Donation Process</h1>
-            <p>Learn everything about blood donation - from eligibility to the actual process and aftercare.<br>Your journey to save lives starts here.</p>
+            <p>Learn everything about blood donation - from eligibility to the actual process and aftercare. Your journey to save lives starts here.</p>
             <div class="hero-buttons">
                 <a href="#process" class="btn">View Process</a>
                 <a href="#eligibility" class="btn btn-outline">Check Eligibility</a>
@@ -615,7 +632,7 @@
         </div>
     </section>
 
-    <!-- Process Steps with 2x2 Grid - Without Illustration -->
+    <!-- Process Steps with 2x2 Grid -->
     <section id="process" class="section section-dark">
         <div class="container">
             <h2 class="section-title">Simple 4-Step Process</h2>
@@ -657,7 +674,7 @@
         </div>
     </section>
 
-    <!-- Eligibility Section with 2x2 Grid - Without Illustration -->
+    <!-- Eligibility Section with 2x2 Grid -->
     <section id="eligibility" class="section section-light">
         <div class="container">
             <h2 class="section-title">Donor Eligibility</h2>
