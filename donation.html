@@ -35,8 +35,11 @@
             display: block !important;
             position: static !important;
         }
-        
-        /* Force our color variables */
+    </style>
+
+    <!-- HOMEPAGE STYLE CSS -->
+    <style>
+        /* Color Variables */
         :root {
             --logo-red: #dc2626;
             --logo-dark-red: #b91c1c;
@@ -44,10 +47,7 @@
             --logo-white: #ffffff;
             --logo-light-bg: #fef2f2;
         }
-    </style>
-
-    <!-- BLOOD DONATION CSS -->
-    <style>
+        
         /* Header Styles */
         .header {
             background: rgba(220, 38, 38, 0.95);
@@ -138,7 +138,7 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section */
+        /* Hero Section - Exactly like Homepage */
         .hero {
             background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
             color: var(--logo-white);
@@ -147,6 +147,23 @@
             position: relative;
             overflow: hidden;
             border-bottom: 5px solid var(--logo-gold);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-100px, -100px) rotate(360deg); }
         }
         
         .hero-content {
@@ -167,6 +184,45 @@
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--logo-white);
+            color: var(--logo-red);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--logo-white);
+        }
+        
+        .btn:hover {
+            background: var(--logo-gold);
+            color: var(--logo-red);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-color: var(--logo-gold);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--logo-white);
+            color: var(--logo-white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--logo-white);
+            color: var(--logo-red);
         }
         
         /* Main Content */
@@ -204,86 +260,7 @@
             margin: 0 auto 3rem;
         }
         
-        /* Process Steps */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .process-step {
-            background: var(--logo-white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid var(--logo-light-bg);
-        }
-        
-        .step-number {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
-            color: var(--logo-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            border: 3px solid var(--logo-white);
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--logo-white);
-            font-size: 2rem;
-        }
-        
-        .process-step h3 {
-            color: var(--logo-red);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .process-step p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Eligibility Grid */
-        .eligibility-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .eligibility-item {
-            background: var(--logo-white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--logo-red);
-        }
-        
-        .eligibility-item h3 {
-            color: var(--logo-red);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Features Grid */
+        /* Features Grid - Exactly like Homepage */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -307,79 +284,129 @@
             border-color: var(--logo-red);
         }
         
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--logo-white);
+            font-size: 2rem;
+        }
+        
         .feature-card h3 {
             color: var(--logo-red);
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
         
-        /* FAQ Styles */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
         }
         
-        .faq-item {
+        /* Stats Section - Like Homepage */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
             background: var(--logo-white);
-            margin: 1rem 0;
-            border-radius: 10px;
-            overflow: hidden;
+            border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--logo-light-bg);
         }
         
-        .faq-question {
-            padding: 1.5rem;
-            background: var(--logo-light-bg);
+        .stat-number {
+            font-size: 3rem;
             font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            padding: 1.5rem;
-            max-height: 500px;
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: var(--logo-white);
             color: var(--logo-red);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 2px solid var(--logo-white);
+            margin-top: 0.5rem;
         }
         
-        .btn:hover {
-            background: var(--logo-gold);
-            color: var(--logo-red);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-color: var(--logo-gold);
+        /* Process Steps - Professional Style */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
         
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--logo-white);
-            color: var(--logo-white);
-        }
-        
-        .btn-outline:hover {
+        .process-step {
             background: var(--logo-white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--logo-light-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.15);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            color: var(--logo-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 4px solid var(--logo-white);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Eligibility Grid - Professional Style */
+        .eligibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .eligibility-item {
+            background: var(--logo-white);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--logo-red);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .eligibility-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.1);
+        }
+        
+        .eligibility-item h3 {
             color: var(--logo-red);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
         
         /* Footer */
@@ -482,6 +509,11 @@
                 width: 60px;
                 height: 60px;
             }
+            
+            .process-steps,
+            .eligibility-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Animation */
@@ -502,7 +534,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Same as Homepage -->
     <header class="header">
         <div class="header-content">
             <a href="index.html" class="logo">
@@ -524,167 +556,148 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="hero" style="padding: 120px 2rem 60px;">
+    <!-- Hero Section - Professional like Homepage -->
+    <section class="hero">
         <div class="hero-content fade-in">
             <h1>Blood Donation Process</h1>
-            <p>Learn everything about blood donation - from eligibility to the actual process and aftercare.</p>
+            <p>Learn everything about blood donation - from eligibility to the actual process and aftercare. Your journey to save lives starts here.</p>
+            <div class="hero-buttons">
+                <a href="#process" class="btn">View Process</a>
+                <a href="#eligibility" class="btn btn-outline">Check Eligibility</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats - Like Homepage -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="stats">
+                <div class="stat-card fade-in">
+                    <span class="stat-number">15-20</span>
+                    <span class="stat-label">Minutes Process</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">56</span>
+                    <span class="stat-label">Days Between Donations</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Lives Saved</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">99%</span>
+                    <span class="stat-label">Safety Rate</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Process Steps -->
-    <section class="section section-light">
+    <section id="process" class="section section-dark">
         <div class="container">
             <h2 class="section-title">Simple 4-Step Donation Process</h2>
+            <p class="section-subtitle">From registration to recovery - we make the entire journey smooth and comfortable</p>
             
             <div class="process-steps">
                 <div class="process-step fade-in">
                     <div class="step-number">1</div>
                     <div class="feature-icon">📝</div>
-                    <h3>Registration</h3>
-                    <p>Complete simple registration with basic personal and health information. Verification takes only 5 minutes.</p>
+                    <h3>Registration & Screening</h3>
+                    <p>Complete simple registration with basic information. Quick health screening ensures donor safety and eligibility.</p>
                 </div>
                 
                 <div class="process-step fade-in">
                     <div class="step-number">2</div>
                     <div class="feature-icon">🩺</div>
-                    <h3>Health Screening</h3>
-                    <p>Quick health check including hemoglobin levels, blood pressure, and medical history review.</p>
+                    <h3>Health Check</h3>
+                    <p>Professional medical staff checks hemoglobin levels, blood pressure, and reviews medical history for safety.</p>
                 </div>
                 
                 <div class="process-step fade-in">
                     <div class="step-number">3</div>
                     <div class="feature-icon">💉</div>
-                    <h3>Blood Donation</h3>
-                    <p>Comfortable donation process takes 10-15 minutes. Sterile, single-use equipment ensures safety.</p>
+                    <h3>Blood Collection</h3>
+                    <p>Comfortable donation takes only 10-15 minutes using sterile, single-use equipment under expert supervision.</p>
                 </div>
                 
                 <div class="process-step fade-in">
                     <div class="step-number">4</div>
                     <div class="feature-icon">🍪</div>
                     <h3>Refresh & Recover</h3>
-                    <p>Enjoy refreshments and rest for 15-20 minutes. Your body replaces blood within 24-48 hours.</p>
+                    <p>Enjoy refreshments while resting. Your body naturally replaces the donated blood within 24-48 hours.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Eligibility Section -->
-    <section id="eligibility" class="section section-dark">
+    <section id="eligibility" class="section section-light">
         <div class="container">
-            <h2 class="section-title">Eligibility Criteria</h2>
-            <p class="section-subtitle">Check if you meet the requirements to become a blood donor</p>
+            <h2 class="section-title">Donor Eligibility Criteria</h2>
+            <p class="section-subtitle">Ensure you meet these requirements for a safe and successful donation experience</p>
             
             <div class="eligibility-grid">
                 <div class="eligibility-item fade-in">
-                    <h3>✅ Age Requirement</h3>
-                    <p>18 to 65 years old (16-17 with parental consent in some cases)</p>
+                    <h3>✅ Age & Weight</h3>
+                    <p>18-65 years old, minimum 50 kg weight for safe donation process and recovery.</p>
                 </div>
                 
                 <div class="eligibility-item fade-in">
-                    <h3>✅ Weight Requirement</h3>
-                    <p>Minimum 50 kg (110 lbs) for safe donation</p>
+                    <h3>✅ Health Status</h3>
+                    <p>Generally good health, free from infections, chronic diseases, and recent illnesses.</p>
                 </div>
                 
                 <div class="eligibility-item fade-in">
-                    <h3>✅ Health Condition</h3>
-                    <p>Generally good health, free from infections and chronic diseases</p>
+                    <h3>✅ Hemoglobin Levels</h3>
+                    <p>Minimum 12.5 g/dL for women and 13.0 g/dL for men to ensure donor safety.</p>
                 </div>
                 
                 <div class="eligibility-item fade-in">
-                    <h3>✅ Hemoglobin Level</h3>
-                    <p>Minimum 12.5 g/dL for women, 13.0 g/dL for men</p>
+                    <h3>✅ Lifestyle Factors</h3>
+                    <p>No recent tattoos/piercings (3-6 months), safe sexual practices, and no IV drug use.</p>
                 </div>
                 
                 <div class="eligibility-item fade-in">
-                    <h3>⏱️ Donation Frequency</h3>
-                    <p>Every 56 days (whole blood), more frequent for platelet donation</p>
+                    <h3>✅ Medical History</h3>
+                    <p>No history of certain diseases, recent surgeries, or specific medical conditions.</p>
                 </div>
                 
                 <div class="eligibility-item fade-in">
-                    <h3>🍽️ Preparation</h3>
-                    <p>Eat healthy meal and drink plenty of fluids before donation</p>
+                    <h3>✅ Preparation</h3>
+                    <p>Well-hydrated, eaten in last 4 hours, and adequate rest before donation.</p>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="donors.html" class="btn">Register as Donor</a>
             </div>
         </div>
     </section>
 
     <!-- Health Benefits -->
-    <section class="section section-light">
+    <section class="section section-dark">
         <div class="container">
-            <h2 class="section-title">Health Benefits of Blood Donation</h2>
+            <h2 class="section-title">Benefits of Blood Donation</h2>
+            <p class="section-subtitle">Donating blood not only saves lives but also offers health advantages for donors</p>
             
             <div class="features">
                 <div class="feature-card fade-in">
                     <div class="feature-icon">❤️</div>
                     <h3>Cardiovascular Health</h3>
-                    <p>Regular donation helps maintain healthy iron levels and may reduce risk of heart disease.</p>
+                    <p>Regular donation helps maintain healthy iron levels, reducing the risk of cardiovascular diseases and improving heart health.</p>
                 </div>
                 
                 <div class="feature-card fade-in">
                     <div class="feature-icon">🔍</div>
-                    <h3>Free Health Checkup</h3>
-                    <p>Receive free screening for blood pressure, hemoglobin, and infectious diseases.</p>
+                    <h3>Free Health Screening</h3>
+                    <p>Receive complimentary health checkups including blood pressure, hemoglobin levels, and infectious disease screening.</p>
                 </div>
                 
                 <div class="feature-card fade-in">
                     <div class="feature-icon">🔄</div>
-                    <h3>Blood Cell Refresh</h3>
-                    <p>Stimulates production of new blood cells, keeping your circulatory system healthy.</p>
+                    <h3>Blood Cell Regeneration</h3>
+                    <p>Stimulates production of fresh blood cells, keeping your circulatory system healthy and active.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- FAQs -->
-    <section class="section section-dark">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
             
-            <div class="faq-container">
-                <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        How long does the entire process take?
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        The entire process from registration to recovery typically takes 45-60 minutes. Actual blood donation takes only 10-15 minutes.
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        Is blood donation painful?
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        You may feel a brief pinch when the needle is inserted, but the donation process itself is generally painless.
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        How often can I donate blood?
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        You can donate whole blood every 56 days (approximately 8 weeks). Platelet donations can be more frequent.
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        What should I do after donation?
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Drink plenty of fluids, avoid strenuous exercise for 24 hours, and eat iron-rich foods. Avoid alcohol for 8 hours.
-                    </div>
-                </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="donors.html" class="btn">Start Your Donation Journey</a>
             </div>
         </div>
     </section>
@@ -695,26 +708,27 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Rishtey Khoon Ke</h3>
-                    <p>Making blood donation accessible and safe for everyone in need.</p>
+                    <p>Making blood donation accessible, safe, and rewarding for everyone. Join our mission to save lives.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <p><a href="index.html">Home</a></p>
-                    <p><a href="donation.html">Donation Info</a></p>
+                    <p><a href="donation.html">Donation Process</a></p>
                     <p><a href="donors.html">Find Donors</a></p>
+                    <p><a href="donors.html#emergency">Emergency Help</a></p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Need Help?</h3>
+                    <h3>Support</h3>
                     <p>Helpline: +92 300 123 4567</p>
-                    <p>Email: help@rishteykhoonke.org</p>
-                    <p>24/7 Emergency Support</p>
+                    <p>Email: support@rishteykhoonke.org</p>
+                    <p>24/7 Emergency Assistance</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Rishtey Khoon Ke. All rights reserved.</p>
+                <p>&copy; 2024 Rishtey Khoon Ke. All rights reserved. | Every Drop Counts</p>
             </div>
         </div>
     </footer>
@@ -724,14 +738,6 @@
         function toggleMenu() {
             const nav = document.getElementById('mainNav');
             nav.classList.toggle('active');
-        }
-        
-        // FAQ Toggle
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            faqItem.classList.toggle('active');
-            const span = element.querySelector('span');
-            span.textContent = faqItem.classList.contains('active') ? '−' : '+';
         }
         
         // Smooth Scrolling
