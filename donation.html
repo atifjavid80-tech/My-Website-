@@ -117,9 +117,9 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section with Background Image */
+        /* Hero Section with Background Image - Less Opacity */
         .hero {
-            background: linear-gradient(rgba(220, 38, 38, 0.85), rgba(185, 28, 28, 0.9)), 
+            background: linear-gradient(rgba(220, 38, 38, 0.7), rgba(185, 28, 28, 0.75)), 
                         url('https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
@@ -390,24 +390,6 @@
             font-size: 0.95rem;
         }
         
-        /* Section with Illustration */
-        .section-with-illustration {
-            position: relative;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .section-illustration {
-            font-size: 4rem;
-            color: var(--logo-red);
-        }
-        
         /* Features */
         .features {
             display: grid;
@@ -541,16 +523,6 @@
                 font-size: 1.8rem;
             }
             
-            .section-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            
-            .section-illustration {
-                font-size: 3rem;
-            }
-            
             .logo {
                 font-size: 1.3rem;
             }
@@ -607,7 +579,7 @@
         </div>
     </header>
 
-    <!-- Hero Section with Background Image -->
+    <!-- Hero Section with Background Image - Less Opacity -->
     <section class="hero">
         <div class="hero-content">
             <h1>Blood Donation Process</h1>
@@ -643,16 +615,11 @@
         </div>
     </section>
 
-    <!-- Process Steps with 2x2 Grid -->
-    <section id="process" class="section section-dark section-with-illustration">
+    <!-- Process Steps with 2x2 Grid - Without Illustration -->
+    <section id="process" class="section section-dark">
         <div class="container">
-            <div class="section-header">
-                <div class="section-illustration">💉</div>
-                <div>
-                    <h2 class="section-title" style="margin-bottom: 0.5rem;">Simple 4-Step Process</h2>
-                    <p class="section-subtitle" style="margin-bottom: 0;">From registration to recovery - we make the entire journey smooth</p>
-                </div>
-            </div>
+            <h2 class="section-title">Simple 4-Step Process</h2>
+            <p class="section-subtitle">From registration to recovery - we make the entire journey smooth</p>
             
             <div class="process-grid">
                 <div class="process-row">
@@ -690,16 +657,11 @@
         </div>
     </section>
 
-    <!-- Eligibility Section with 2x2 Grid -->
-    <section id="eligibility" class="section section-light section-with-illustration">
+    <!-- Eligibility Section with 2x2 Grid - Without Illustration -->
+    <section id="eligibility" class="section section-light">
         <div class="container">
-            <div class="section-header">
-                <div class="section-illustration">✅</div>
-                <div>
-                    <h2 class="section-title" style="margin-bottom: 0.5rem;">Donor Eligibility</h2>
-                    <p class="section-subtitle" style="margin-bottom: 0;">Ensure you meet these requirements for safe donation</p>
-                </div>
-            </div>
+            <h2 class="section-title">Donor Eligibility</h2>
+            <p class="section-subtitle">Ensure you meet these requirements for safe donation</p>
             
             <div class="eligibility-grid-new">
                 <div class="eligibility-row">
