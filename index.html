@@ -104,6 +104,9 @@
             font-weight: bold;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
         }
         
         .donate-btn:hover {
@@ -114,9 +117,13 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section */
+        /* Hero Section with Background Image - Same as Donation Page */
         .hero {
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            background: linear-gradient(rgba(220, 38, 38, 0.7), rgba(185, 28, 28, 0.75)), 
+                        url('https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: var(--logo-white);
             padding: 140px 2rem 80px;
             text-align: center;
@@ -136,13 +143,15 @@
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
         
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+            line-height: 1.8;
         }
         
         .hero-buttons {
@@ -163,13 +172,14 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .btn:hover {
             background: var(--logo-gold);
             color: var(--logo-red);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             border-color: var(--logo-gold);
         }
         
@@ -402,6 +412,10 @@
                 display: block;
             }
             
+            .hero {
+                padding: 120px 1.5rem 60px;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -421,6 +435,16 @@
             .logo-img {
                 width: 60px;
                 height: 60px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 250px;
+                text-align: center;
             }
         }
         
@@ -464,7 +488,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Background Image -->
     <section class="hero">
         <div class="hero-content fade-in">
             <h1>Give the Gift of Life</h1>
