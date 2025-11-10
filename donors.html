@@ -7,36 +7,26 @@
     
     <!-- OVERRIDE CSS -->
     <style>
-        /* RESET AND OVERRIDE EXISTING STYLES */
         * {
-            margin: 0 !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         html, body {
-            width: 100% !important;
-            height: 100% !important;
-            background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%) !important;
-            color: #333 !important;
-            line-height: 1.6 !important;
-            overflow-x: hidden !important;
-            scroll-behavior: smooth !important;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        
-        /* Remove all existing layouts */
-        .container, .section, .row, .col, [class*="container"], [class*="row"], [class*="col"] {
-            max-width: none !important;
-            width: auto !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            float: none !important;
-            display: block !important;
-            position: static !important;
-        }
-        
-        /* Force our color variables */
+    </style>
+
+    <!-- MAIN CSS -->
+    <style>
         :root {
             --logo-red: #dc2626;
             --logo-dark-red: #b91c1c;
@@ -44,21 +34,17 @@
             --logo-white: #ffffff;
             --logo-light-bg: #fef2f2;
         }
-    </style>
-
-    <!-- BLOOD DONATION CSS -->
-    <style>
-        /* Header Styles */
+        
+        /* Header */
         .header {
-            background: rgba(220, 38, 38, 0.95);
+            background: var(--logo-red);
             color: var(--logo-white);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--logo-gold);
+            border-bottom: 2px solid var(--logo-gold);
         }
         
         .header-content {
@@ -71,36 +57,32 @@
         }
         
         .logo { 
-            font-size: 1.8rem; 
+            font-size: 1.5rem; 
             font-weight: bold; 
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
             color: var(--logo-white);
         }
         
         .logo-img {
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--logo-white);
-            background: var(--logo-red);
-            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            border: 2px solid var(--logo-white);
         }
         
         .tagline { 
-            font-size: 0.9rem; 
-            opacity: 0.9; 
-            margin-top: 2px;
+            font-size: 0.8rem; 
             color: var(--logo-gold);
         }
         
         /* Navigation */
         .nav { 
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
         
@@ -108,33 +90,28 @@
             color: var(--logo-white);
             text-decoration: none;
             font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
             transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 25px;
         }
         
         .nav a:hover,
         .nav a.active { 
-            color: var(--logo-red);
             background: var(--logo-white);
-            transform: translateY(-2px);
+            color: var(--logo-red);
         }
         
         .donate-btn {
             background: var(--logo-white);
             color: var(--logo-red);
-            padding: 12px 24px;
-            border-radius: 25px;
+            padding: 8px 20px;
+            border-radius: 20px;
             font-weight: bold;
-            transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
         }
         
         .donate-btn:hover {
             background: var(--logo-gold);
-            color: var(--logo-red);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             border-color: var(--logo-gold);
         }
         
@@ -142,31 +119,62 @@
         .hero {
             background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
             color: var(--logo-white);
-            padding: 140px 2rem 80px;
+            padding: 120px 2rem 60px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 5px solid var(--logo-gold);
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--logo-white);
+            color: var(--logo-red);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid var(--logo-white);
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--logo-gold);
+            border-color: var(--logo-gold);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--logo-white);
+            color: var(--logo-white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--logo-white);
+            color: var(--logo-red);
         }
         
         /* Main Content */
@@ -177,7 +185,7 @@
         }
         
         .section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .section-light {
@@ -190,35 +198,36 @@
         
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--logo-red);
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             font-weight: 700;
         }
         
         .section-subtitle {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #666;
             max-width: 600px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
         }
         
         /* Search Container */
         .search-container {
             background: var(--logo-white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             max-width: 800px;
-            margin: 2rem auto;
-            border: 2px solid var(--logo-light-bg);
+            margin: 0 auto;
+            border: 1px solid var(--logo-light-bg);
         }
         
         .search-form {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
         
         @media (min-width: 768px) {
@@ -233,7 +242,7 @@
         
         .form-input, .form-select {
             width: 100%;
-            padding: 15px 20px;
+            padding: 14px 18px;
             border: 2px solid #e5e7eb;
             border-radius: 10px;
             font-size: 1rem;
@@ -248,13 +257,13 @@
         }
         
         .search-btn {
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            background: var(--logo-red);
             color: var(--logo-white);
             border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 16px 35px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s ease;
@@ -262,36 +271,36 @@
         }
         
         .search-btn:hover {
+            background: var(--logo-dark-red);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
-            border-color: var(--logo-gold);
+            box-shadow: 0 6px 18px rgba(220, 38, 38, 0.2);
         }
         
         /* Donors Grid */
         .donors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         
         .donor-card {
             background: var(--logo-white);
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border: 2px solid var(--logo-light-bg);
+            border: 1px solid var(--logo-light-bg);
         }
         
         .donor-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.15);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
         }
         
         .blood-group {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--logo-red);
             margin-bottom: 1rem;
@@ -304,6 +313,13 @@
         .donor-info h3 {
             color: var(--logo-red);
             margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .donor-info p {
+            color: #666;
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
         }
         
         .contact-btn {
@@ -311,12 +327,13 @@
             color: var(--logo-white);
             border: none;
             padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: bold;
+            border-radius: 20px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 1rem;
             width: 100%;
+            font-size: 1rem;
         }
         
         .contact-btn:hover {
@@ -328,14 +345,14 @@
         .emergency-section {
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: var(--logo-white);
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
             text-align: center;
-            margin: 3rem 0;
+            margin: 2rem 0;
         }
         
         .emergency-contact {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             margin: 1rem 0;
         }
@@ -344,95 +361,88 @@
         .register-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         
         .register-option {
             background: var(--logo-white);
-            padding: 2.5rem;
-            border-radius: 15px;
+            padding: 2rem;
+            border-radius: 12px;
             text-align: center;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
-            border: 2px solid var(--logo-light-bg);
+            border: 1px solid var(--logo-light-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .register-option:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.1);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
             border-color: var(--logo-red);
         }
         
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            width: 60px;
+            height: 60px;
+            background: var(--logo-red);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
             color: var(--logo-white);
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
         
         .register-option h3 {
             color: var(--logo-red);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
         
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: var(--logo-white);
-            color: var(--logo-red);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 2px solid var(--logo-white);
+        .register-option p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
         }
         
-        .btn:hover {
-            background: var(--logo-gold);
+        .register-option small {
             color: var(--logo-red);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-color: var(--logo-gold);
+            font-weight: 600;
         }
         
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, var(--logo-dark-red), var(--logo-red));
+            background: var(--logo-dark-red);
             color: var(--logo-white);
-            padding: 4rem 0 2rem;
-            border-top: 5px solid var(--logo-gold);
+            padding: 3rem 0 1.5rem;
+            border-top: 3px solid var(--logo-gold);
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
         .footer-section h3 {
             color: var(--logo-gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
         
         .footer-section p {
-            color: rgba(255,255,255,0.8);
-            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
         
         .footer-section a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -443,9 +453,10 @@
         
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
         }
         
         /* Mobile Menu */
@@ -454,11 +465,11 @@
             background: none;
             border: none;
             color: var(--logo-white);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
         }
         
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
             .header-content {
                 padding: 0 1rem;
@@ -470,10 +481,10 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(220, 38, 38, 0.98);
+                background: var(--logo-red);
                 flex-direction: column;
                 padding: 1rem;
-                gap: 1rem;
+                gap: 0.8rem;
                 border-top: 2px solid var(--logo-gold);
             }
             
@@ -486,7 +497,7 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
@@ -494,37 +505,36 @@
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo-img {
+                width: 45px;
+                height: 45px;
             }
             
             .search-container {
                 padding: 2rem 1.5rem;
             }
             
-            .logo {
-                font-size: 1.5rem;
+            .donors-grid,
+            .register-options {
+                grid-template-columns: 1fr;
             }
             
-            .logo-img {
-                width: 60px;
-                height: 60px;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
-        }
-        
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            
+            .btn {
+                width: 200px;
+                text-align: center;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
@@ -551,21 +561,25 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="hero" style="padding: 120px 2rem 60px;">
-        <div class="hero-content fade-in">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
             <h1>Find Blood Donors</h1>
             <p>Connect with verified blood donors in your area or register to become a life-saver.</p>
+            <div class="hero-buttons">
+                <a href="#search" class="btn">Search Donors</a>
+                <a href="#register" class="btn btn-outline">Register as Donor</a>
+            </div>
         </div>
     </section>
 
     <!-- Search Section -->
-    <section class="section section-light">
+    <section id="search" class="section section-light">
         <div class="container">
             <h2 class="section-title">Search for Blood Donors</h2>
             <p class="section-subtitle">Find compatible blood donors in your city or nearby areas</p>
             
-            <div class="search-container fade-in">
+            <div class="search-container">
                 <form class="search-form" id="donorSearchForm">
                     <select class="form-select" name="bloodGroup" required>
                         <option value="">Select Blood Group</option>
@@ -576,8 +590,8 @@
                     <select class="form-select" name="city" required>
                         <option value="">Select City</option>
                         <option>Karachi</option><option>Lahore</option><option>Islamabad</option>
-                        <option>Rawalpindi</option><option>Faisalabad</option><option>Multan</option>
-                        <option>Peshawar</option><option>Quetta</option><option>Hyderabad</option>
+                        <option>Rawalpindi</option><option>Faisalabad</option>
+                        <option>Multan</option><option>Peshawar</option>
                     </select>
                     
                     <select class="form-select form-full" name="urgency">
@@ -597,10 +611,10 @@
     <section class="section section-dark">
         <div class="container">
             <h2 class="section-title">Available Donors</h2>
-            <p class="section-subtitle">Verified donors ready to help</p>
+            <p class="section-subtitle">Verified donors ready to help in emergencies</p>
             
             <div class="donors-grid">
-                <div class="donor-card fade-in">
+                <div class="donor-card">
                     <div class="blood-group">A+</div>
                     <div class="donor-info">
                         <h3>Ali Ahmed</h3>
@@ -611,7 +625,7 @@
                     <button class="contact-btn" onclick="contactDonor('Ali Ahmed')">Contact Donor</button>
                 </div>
                 
-                <div class="donor-card fade-in">
+                <div class="donor-card">
                     <div class="blood-group">O+</div>
                     <div class="donor-info">
                         <h3>Fatima Khan</h3>
@@ -622,7 +636,7 @@
                     <button class="contact-btn" onclick="contactDonor('Fatima Khan')">Contact Donor</button>
                 </div>
                 
-                <div class="donor-card fade-in">
+                <div class="donor-card">
                     <div class="blood-group">B-</div>
                     <div class="donor-info">
                         <h3>Usman Raza</h3>
@@ -632,17 +646,6 @@
                     </div>
                     <button class="contact-btn" onclick="contactDonor('Usman Raza')">Contact Donor</button>
                 </div>
-                
-                <div class="donor-card fade-in">
-                    <div class="blood-group">AB+</div>
-                    <div class="donor-info">
-                        <h3>Sara Javed</h3>
-                        <p>📍 Rawalpindi</p>
-                        <p>Last Donated: 2 weeks ago</p>
-                        <p>✅ Available for donation</p>
-                    </div>
-                    <button class="contact-btn" onclick="contactDonor('Sara Javed')">Contact Donor</button>
-                </div>
             </div>
         </div>
     </section>
@@ -650,12 +653,12 @@
     <!-- Emergency Section -->
     <section id="emergency" class="section">
         <div class="container">
-            <div class="emergency-section fade-in">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🚨 Emergency Blood Need?</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Immediate assistance available 24/7</p>
+            <div class="emergency-section">
+                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">🚨 Emergency Blood Need?</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Immediate assistance available 24/7</p>
                 <div class="emergency-contact">+92 300 123 4567</div>
                 <p>Call now for urgent blood requirements</p>
-                <div style="margin-top: 2rem;">
+                <div style="margin-top: 1.5rem;">
                     <button class="btn" onclick="callEmergency()">Call Emergency Line</button>
                 </div>
             </div>
@@ -663,27 +666,27 @@
     </section>
 
     <!-- Register Options -->
-    <section class="section section-light">
+    <section id="register" class="section section-light">
         <div class="container">
             <h2 class="section-title">Join Our Community</h2>
             <p class="section-subtitle">Register as a donor or request blood</p>
             
             <div class="register-options">
-                <a href="#registerDonor" class="register-option fade-in">
+                <a href="#registerDonor" class="register-option">
                     <div class="feature-icon">🩸</div>
                     <h3>Become a Donor</h3>
                     <p>Register as a blood donor and save lives in your community</p>
                     <small>Click to register</small>
                 </a>
                 
-                <a href="#requestBlood" class="register-option fade-in">
+                <a href="#requestBlood" class="register-option">
                     <div class="feature-icon">🏥</div>
                     <h3>Request Blood</h3>
                     <p>Submit a blood request for yourself or someone in need</p>
                     <small>Click to request</small>
                 </a>
                 
-                <a href="donation.html" class="register-option fade-in">
+                <a href="donation.html" class="register-option">
                     <div class="feature-icon">📚</div>
                     <h3>Learn More</h3>
                     <p>Understand the donation process and eligibility criteria</p>
@@ -698,7 +701,7 @@
         <div class="container">
             <h2 class="section-title">Register as Blood Donor</h2>
             
-            <div class="search-container fade-in">
+            <div class="search-container">
                 <form class="search-form" action="https://docs.google.com/forms/d/e/1FAIpQLScZDYFW-KWWzytZr2K416ZMGl-tqfPPVhj3gnl0G-pFkWHsXA/formResponse" method="POST" target="_blank">
                     <input class="form-input" type="text" name="entry.1077166742" placeholder="Full Name" required>
                     <input class="form-input" type="tel" name="entry.1729316888" placeholder="Phone Number" required>
@@ -724,7 +727,7 @@
                     </div>
                 </form>
                 
-                <p style="text-align: center; margin-top: 2rem; color: #666;">
+                <p style="text-align: center; margin-top: 1.5rem; color: #666;">
                     <small>Or fill the form directly: 
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLScZDYFW-KWWzytZr2K416ZMGl-tqfPPVhj3gnl0G-pFkWHsXA/viewform" 
                            target="_blank" 
@@ -783,7 +786,6 @@
         // Emergency Call Function
         function callEmergency() {
             alert('Redirecting to emergency helpline: +92 300 123 4567');
-            // In real implementation: window.location.href = 'tel:+923001234567';
         }
         
         // Search Form Handler
@@ -795,7 +797,6 @@
             
             if (bloodGroup && city) {
                 alert(`Searching for ${bloodGroup} blood donors in ${city} (${urgency} priority)`);
-                // In real implementation: perform search and show results
             }
         });
         
@@ -812,19 +813,6 @@
                     document.getElementById('mainNav').classList.remove('active');
                 }
             });
-        });
-        
-        // Animation Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
         });
     </script>
 </body>
