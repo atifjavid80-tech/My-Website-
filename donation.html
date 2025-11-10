@@ -107,16 +107,8 @@
             font-weight: bold;
             border: 2px solid var(--logo-white);
             transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            right: 2rem;
-        }
-        
-        .nav:hover .donate-btn {
-            opacity: 1;
-            visibility: visible;
-            position: static;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
         
         .donate-btn:hover {
@@ -428,6 +420,24 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
+        /* Section with Illustration */
+        .section-with-illustration {
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-illustration {
+            font-size: 4rem;
+            color: var(--logo-red);
+        }
+        
         /* Features */
         .features {
             display: grid;
@@ -541,13 +551,6 @@
                 display: flex;
             }
             
-            .donate-btn {
-                opacity: 1;
-                visibility: visible;
-                position: static;
-                margin-top: 0.5rem;
-            }
-            
             .mobile-menu-btn {
                 display: block;
             }
@@ -562,6 +565,16 @@
             
             .section-title {
                 font-size: 1.8rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .section-illustration {
+                font-size: 3rem;
             }
             
             .logo {
@@ -658,10 +671,15 @@
     </section>
 
     <!-- Process Steps with 2x2 Grid -->
-    <section id="process" class="section section-dark">
+    <section id="process" class="section section-dark section-with-illustration">
         <div class="container">
-            <h2 class="section-title">Simple 4-Step Process</h2>
-            <p class="section-subtitle">From registration to recovery - we make the entire journey smooth</p>
+            <div class="section-header">
+                <div class="section-illustration">💉</div>
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 0.5rem;">Simple 4-Step Process</h2>
+                    <p class="section-subtitle" style="margin-bottom: 0;">From registration to recovery - we make the entire journey smooth</p>
+                </div>
+            </div>
             
             <div class="process-grid">
                 <div class="process-row">
@@ -699,32 +717,16 @@
         </div>
     </section>
 
-    <!-- Process with Illustration -->
-    <section class="section section-light">
+    <!-- Eligibility Section with 2x2 Grid -->
+    <section id="eligibility" class="section section-light section-with-illustration">
         <div class="container">
-            <div class="process-with-image">
-                <div class="process-image">
-                    <div class="step-image" style="font-size: 8rem; color: var(--logo-red);">💉</div>
-                </div>
+            <div class="section-header">
+                <div class="section-illustration">✅</div>
                 <div>
-                    <h2 class="section-title" style="text-align: left;">Blood Donation Process</h2>
-                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.7;">
-                        Our blood donation process is designed to be safe, comfortable, and efficient. From the moment you arrive until you leave, our trained medical staff ensures your well-being at every step.
-                    </p>
-                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.7;">
-                        The actual blood collection takes only 10-15 minutes, while the entire process from registration to recovery typically takes about 45-60 minutes. All equipment used is sterile, disposable, and used only once to ensure maximum safety.
-                    </p>
-                    <a href="#eligibility" class="btn">Check Your Eligibility</a>
+                    <h2 class="section-title" style="margin-bottom: 0.5rem;">Donor Eligibility</h2>
+                    <p class="section-subtitle" style="margin-bottom: 0;">Ensure you meet these requirements for safe donation</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Eligibility Section with 2x2 Grid -->
-    <section id="eligibility" class="section section-dark">
-        <div class="container">
-            <h2 class="section-title">Donor Eligibility</h2>
-            <p class="section-subtitle">Ensure you meet these requirements for safe donation</p>
             
             <div class="eligibility-grid-new">
                 <div class="eligibility-row">
@@ -759,7 +761,7 @@
     </section>
 
     <!-- Health Benefits -->
-    <section class="section section-light">
+    <section class="section section-dark">
         <div class="container">
             <h2 class="section-title">Benefits of Donation</h2>
             <p class="section-subtitle">Donating blood saves lives and offers health advantages</p>
