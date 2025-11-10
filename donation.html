@@ -9,8 +9,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --logo-red: #9F0C11;
-            --logo-dark-red: #7a090d;
+            --logo-red: #dc2626;
+            --logo-dark-red: #b91c1c;
             --logo-gold: #ffd700;
             --logo-white: #ffffff;
             --logo-light-bg: #fef2f2;
@@ -34,7 +34,6 @@
             top: 0;
             z-index: 1000;
             border-bottom: 3px solid var(--logo-gold);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .header-content {
@@ -72,10 +71,10 @@
             color: var(--logo-gold);
         }
         
-        /* Navigation - All buttons same style */
+        /* Navigation - Button ALWAYS VISIBLE */
         .nav { 
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             align-items: center;
         }
         
@@ -95,13 +94,12 @@
             transform: translateY(-2px);
         }
         
-        /* Urgent Need Button - Same style as other nav buttons BUT ALWAYS VISIBLE */
         .donate-btn {
             background: var(--logo-white);
             color: var(--logo-red);
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 25px;
-            font-weight: 500;
+            font-weight: bold;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
         }
@@ -114,20 +112,20 @@
             border-color: var(--logo-gold);
         }
         
-        /* IMPROVED Hero Section with BETTER BACKGROUND IMAGE */
+        /* Hero Section with EXACT IMAGE from your link */
         .hero {
             background: 
-                linear-gradient(90deg, rgba(159, 12, 17, 0.85) 30%, rgba(159, 12, 17, 0.4) 100%),
-                url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+                linear-gradient(90deg, rgba(220, 38, 38, 0.85) 40%, rgba(220, 38, 38, 0.5) 100%),
+                url('https://i.ibb.co/5hNtMKQL/front-view-woman-holding-paper-heart-with-heartbeat.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: right center;
             background-repeat: no-repeat;
             color: var(--logo-white);
             padding: 140px 2rem 80px;
             position: relative;
             overflow: hidden;
             border-bottom: 5px solid var(--logo-gold);
-            min-height: 90vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
         }
@@ -151,7 +149,6 @@
             font-weight: 800;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
             line-height: 1.2;
-            animation: fadeInUp 1s ease-out;
         }
         
         .hero p {
@@ -160,7 +157,6 @@
             opacity: 0.95;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
             line-height: 1.8;
-            animation: fadeInUp 1s ease-out 0.2s both;
         }
         
         .hero-buttons {
@@ -168,7 +164,6 @@
             gap: 1rem;
             justify-content: flex-start;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.4s both;
         }
         
         .btn {
@@ -259,7 +254,7 @@
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(159, 12, 17, 0.15);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
             border-color: var(--logo-red);
         }
         
@@ -317,11 +312,11 @@
             margin-top: 0.5rem;
         }
         
-        /* Quick Links - 4 BOXES IN ONE LINE */
+        /* Quick Links */
         .quick-links {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
         
@@ -334,16 +329,11 @@
             color: inherit;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-light-bg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 250px;
         }
         
         .quick-link-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(159, 12, 17, 0.1);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.1);
             border-color: var(--logo-red);
         }
         
@@ -400,63 +390,6 @@
             cursor: pointer;
         }
         
-        /* NEW: Blood Drop Animation */
-        .blood-drop {
-            position: absolute;
-            width: 20px;
-            height: 30px;
-            background: var(--logo-red);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            opacity: 0.7;
-            animation: float 6s ease-in-out infinite;
-            z-index: 1;
-        }
-        
-        .blood-drop:nth-child(2) {
-            left: 10%;
-            animation-delay: 1s;
-            width: 15px;
-            height: 25px;
-        }
-        
-        .blood-drop:nth-child(3) {
-            left: 20%;
-            animation-delay: 2s;
-            width: 25px;
-            height: 35px;
-        }
-        
-        .blood-drop:nth-child(4) {
-            left: 80%;
-            animation-delay: 3s;
-            width: 18px;
-            height: 28px;
-        }
-        
-        .blood-drop:nth-child(5) {
-            left: 90%;
-            animation-delay: 4s;
-            width: 22px;
-            height: 32px;
-        }
-        
-        /* NEW: Pulse Animation for Urgent Button */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -488,12 +421,10 @@
                 padding: 120px 1.5rem 60px;
                 text-align: center;
                 background: 
-                    linear-gradient(90deg, rgba(159, 12, 17, 0.7) 30%, rgba(159, 12, 17, 0.4) 100%),
-                    url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+                    linear-gradient(rgba(220, 38, 38, 0.9), rgba(185, 28, 28, 0.9)),
+                    url('https://i.ibb.co/5hNtMKQL/front-view-woman-holding-paper-heart-with-heartbeat.jpg');
                 background-size: cover;
                 background-position: center;
-                background-repeat: no-repeat;
-                min-height: 80vh;
             }
             
             .hero-text {
@@ -513,17 +444,6 @@
                 justify-content: center;
             }
             
-            /* Quick Links - Mobile mein 2 boxes per line */
-            .quick-links {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .quick-link-card {
-                padding: 1.5rem;
-                min-height: 200px;
-            }
-            
             .section-title {
                 font-size: 2rem;
             }
@@ -541,42 +461,6 @@
                 width: 250px;
                 text-align: center;
             }
-            
-            /* Hide blood drops on mobile for performance */
-            .blood-drop {
-                display: none;
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 480px) {
-            .hero {
-                background: 
-                    linear-gradient(90deg, rgba(159, 12, 17, 0.6) 20%, rgba(159, 12, 17, 0.3) 100%),
-                    url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            /* Quick Links - Very small screens pe 1 box per line */
-            .quick-links {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .quick-link-card {
-                padding: 1.5rem;
-                min-height: 180px;
-            }
         }
         
         /* Animation */
@@ -588,15 +472,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
             }
         }
         
@@ -621,24 +496,17 @@
                 <a href="index.html" class="active">Home</a>
                 <a href="donation.html">Donation Info</a>
                 <a href="donors.html">Find Donors</a>
-                <a href="donors.html" class="donate-btn pulse">Urgent Need</a>
+                <a href="donors.html" class="donate-btn">Urgent Need?</a>
             </nav>
             
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </header>
 
-    <!-- IMPROVED Hero Section with BETTER BACKGROUND IMAGE -->
+    <!-- Hero Section with EXACT IMAGE -->
     <section class="hero">
-        <!-- Blood Drop Animations -->
-        <div class="blood-drop"></div>
-        <div class="blood-drop"></div>
-        <div class="blood-drop"></div>
-        <div class="blood-drop"></div>
-        <div class="blood-drop"></div>
-        
         <div class="hero-content">
-            <div class="hero-text">
+            <div class="hero-text fade-in">
                 <h1>Give the Gift of Life</h1>
                 <p>Every blood donation can save up to three lives. Join thousands of heroes in our mission to support patients in critical need.</p>
                 <div class="hero-buttons">
@@ -673,7 +541,7 @@
         </div>
     </section>
 
-    <!-- Quick Links Section - 4 BOXES IN ONE LINE -->
+    <!-- Quick Links Section -->
     <section class="section section-dark">
         <div class="container">
             <h2 class="section-title">Quick Access</h2>
@@ -805,22 +673,6 @@
         // Observe all feature cards and stats
         document.querySelectorAll('.feature-card, .stat-card, .quick-link-card').forEach(el => {
             observer.observe(el);
-        });
-        
-        // Add blood drops dynamically for better performance
-        document.addEventListener('DOMContentLoaded', function() {
-            const hero = document.querySelector('.hero');
-            const dropCount = 5;
-            
-            for (let i = 0; i < dropCount; i++) {
-                const drop = document.createElement('div');
-                drop.className = 'blood-drop';
-                drop.style.left = `${Math.random() * 100}%`;
-                drop.style.animationDelay = `${Math.random() * 5}s`;
-                drop.style.width = `${15 + Math.random() * 10}px`;
-                drop.style.height = `${25 + Math.random() * 10}px`;
-                hero.appendChild(drop);
-            }
         });
     </script>
 </body>
