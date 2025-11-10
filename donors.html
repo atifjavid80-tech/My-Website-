@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Blood Donors - Rishtey Khoon Ke</title>
     
-    <!-- OVERRIDE CSS -->
     <style>
         * {
             margin: 0;
@@ -25,7 +24,6 @@
         }
     </style>
 
-    <!-- MAIN CSS -->
     <style>
         :root {
             --logo-red: #dc2626;
@@ -117,29 +115,52 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section */
+        /* Hero Section with Same Shadow Effect */
         .hero {
             background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
             color: var(--logo-white);
             padding: 120px 2rem 60px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-100px, -100px) rotate(360deg); }
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
         
         .hero-buttons {
@@ -160,6 +181,7 @@
             font-size: 1rem;
             border: 2px solid var(--logo-white);
             transition: all 0.3s ease;
+            text-shadow: none;
         }
         
         .btn:hover {
@@ -563,11 +585,11 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Same Shadow Effect -->
     <section class="hero">
         <div class="hero-content">
             <h1>Find Blood Donors</h1>
-            <p>Connect with verified blood donors in your area or register to become a life-saver.</p>
+            <p>Connect with verified blood donors in your area or register to become a life-saver. Every search can save a life.</p>
             <div class="hero-buttons">
                 <a href="#search" class="btn">Search Donors</a>
                 <a href="#register" class="btn btn-outline">Register as Donor</a>
