@@ -4,9 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Blood Donors - Rishtey Khoon Ke</title>
+    
+    <!-- OVERRIDE CSS -->
     <style>
-        /* Same CSS as previous pages - showing new additions */
+        /* RESET AND OVERRIDE EXISTING STYLES */
+        * {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        }
         
+        html, body {
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%) !important;
+            color: #333 !important;
+            line-height: 1.6 !important;
+            overflow-x: hidden !important;
+            scroll-behavior: smooth !important;
+        }
+        
+        /* Remove all existing layouts */
+        .container, .section, .row, .col, [class*="container"], [class*="row"], [class*="col"] {
+            max-width: none !important;
+            width: auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            float: none !important;
+            display: block !important;
+            position: static !important;
+        }
+        
+        /* Force our color variables */
+        :root {
+            --logo-red: #dc2626;
+            --logo-dark-red: #b91c1c;
+            --logo-gold: #ffd700;
+            --logo-white: #ffffff;
+            --logo-light-bg: #fef2f2;
+        }
+    </style>
+
+    <!-- BLOOD DONATION CSS -->
+    <style>
+        /* Header Styles */
+        .header {
+            background: rgba(220, 38, 38, 0.95);
+            color: var(--logo-white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--logo-gold);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: bold; 
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--logo-white);
+        }
+        
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--logo-white);
+            background: var(--logo-red);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .tagline { 
+            font-size: 0.9rem; 
+            opacity: 0.9; 
+            margin-top: 2px;
+            color: var(--logo-gold);
+        }
+        
+        /* Navigation */
+        .nav { 
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav a {
+            color: var(--logo-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+        }
+        
+        .nav a:hover,
+        .nav a.active { 
+            color: var(--logo-red);
+            background: var(--logo-white);
+            transform: translateY(-2px);
+        }
+        
+        .donate-btn {
+            background: var(--logo-white);
+            color: var(--logo-red);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid var(--logo-white);
+        }
+        
+        .donate-btn:hover {
+            background: var(--logo-gold);
+            color: var(--logo-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: var(--logo-gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            color: var(--logo-white);
+            padding: 140px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--logo-gold);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-light {
+            background: var(--logo-white);
+        }
+        
+        .section-dark {
+            background: var(--logo-light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--logo-red);
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Search Container */
         .search-container {
             background: var(--logo-white);
             padding: 3rem;
@@ -69,6 +267,7 @@
             border-color: var(--logo-gold);
         }
         
+        /* Donors Grid */
         .donors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -102,6 +301,11 @@
             margin: 1rem 0;
         }
         
+        .donor-info h3 {
+            color: var(--logo-red);
+            margin-bottom: 0.5rem;
+        }
+        
         .contact-btn {
             background: var(--logo-red);
             color: var(--logo-white);
@@ -112,6 +316,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 1rem;
+            width: 100%;
         }
         
         .contact-btn:hover {
@@ -119,6 +324,7 @@
             transform: translateY(-2px);
         }
         
+        /* Emergency Section */
         .emergency-section {
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: var(--logo-white);
@@ -134,6 +340,7 @@
             margin: 1rem 0;
         }
         
+        /* Register Options */
         .register-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -156,6 +363,168 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(220, 38, 38, 0.1);
             border-color: var(--logo-red);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--logo-white);
+            font-size: 2rem;
+        }
+        
+        .register-option h3 {
+            color: var(--logo-red);
+            margin-bottom: 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--logo-white);
+            color: var(--logo-red);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--logo-white);
+        }
+        
+        .btn:hover {
+            background: var(--logo-gold);
+            color: var(--logo-red);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-color: var(--logo-gold);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--logo-dark-red), var(--logo-red));
+            color: var(--logo-white);
+            padding: 4rem 0 2rem;
+            border-top: 5px solid var(--logo-gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--logo-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--logo-gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--logo-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(220, 38, 38, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-top: 2px solid var(--logo-gold);
+            }
+            
+            .nav.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .search-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
