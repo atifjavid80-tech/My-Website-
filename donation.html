@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Process - Rishtey Khoon Ke</title>
+    <style>
+        /* Same CSS as homepage - only showing new additions */
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .process-step {
+            background: var(--logo-white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--logo-light-bg);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red));
+            color: var(--logo-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 3px solid var(--logo-white);
+        }
+        
+        .eligibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .eligibility-item {
+            background: var(--logo-white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--logo-red);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--logo-white);
+            margin: 1rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--logo-light-bg);
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .content-section {
+            margin: 4rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/GQ6WJ5QH/New-Project.png" alt="Rishtey Khoon Ke Logo" class="logo-img">
+                <div>
+                    <div>Rishtey Khoon Ke</div>
+                    <div class="tagline">Save Lives With One Donation</div>
+                </div>
+            </a>
+            
+            <nav class="nav" id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="donation.html" class="active">Donation Info</a>
+                <a href="donors.html">Find Donors</a>
+                <a href="donors.html" class="donate-btn">Urgent Need?</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="hero" style="padding: 120px 2rem 60px;">
+        <div class="hero-content fade-in">
+            <h1>Blood Donation Process</h1>
+            <p>Learn everything about blood donation - from eligibility to the actual process and aftercare.</p>
+        </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Simple 4-Step Donation Process</h2>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="feature-icon">📝</div>
+                    <h3>Registration</h3>
+                    <p>Complete simple registration with basic personal and health information. Verification takes only 5 minutes.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="feature-icon">🩺</div>
+                    <h3>Health Screening</h3>
+                    <p>Quick health check including hemoglobin levels, blood pressure, and medical history review.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="feature-icon">💉</div>
+                    <h3>Blood Donation</h3>
+                    <p>Comfortable donation process takes 10-15 minutes. Sterile, single-use equipment ensures safety.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <div class="feature-icon">🍪</div>
+                    <h3>Refresh & Recover</h3>
+                    <p>Enjoy refreshments and rest for 15-20 minutes. Your body replaces blood within 24-48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Section -->
+    <section id="eligibility" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Eligibility Criteria</h2>
+            <p class="section-subtitle">Check if you meet the requirements to become a blood donor</p>
+            
+            <div class="eligibility-grid">
+                <div class="eligibility-item fade-in">
+                    <h3>✅ Age Requirement</h3>
+                    <p>18 to 65 years old (16-17 with parental consent in some cases)</p>
+                </div>
+                
+                <div class="eligibility-item fade-in">
+                    <h3>✅ Weight Requirement</h3>
+                    <p>Minimum 50 kg (110 lbs) for safe donation</p>
+                </div>
+                
+                <div class="eligibility-item fade-in">
+                    <h3>✅ Health Condition</h3>
+                    <p>Generally good health, free from infections and chronic diseases</p>
+                </div>
+                
+                <div class="eligibility-item fade-in">
+                    <h3>✅ Hemoglobin Level</h3>
+                    <p>Minimum 12.5 g/dL for women, 13.0 g/dL for men</p>
+                </div>
+                
+                <div class="eligibility-item fade-in">
+                    <h3>⏱️ Donation Frequency</h3>
+                    <p>Every 56 days (whole blood), more frequent for platelet donation</p>
+                </div>
+                
+                <div class="eligibility-item fade-in">
+                    <h3>🍽️ Preparation</h3>
+                    <p>Eat healthy meal and drink plenty of fluids before donation</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="donors.html" class="btn">Register as Donor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Benefits -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Health Benefits of Blood Donation</h2>
+            
+            <div class="features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Cardiovascular Health</h3>
+                    <p>Regular donation helps maintain healthy iron levels and may reduce risk of heart disease.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Free Health Checkup</h3>
+                    <p>Receive free screening for blood pressure, hemoglobin, and infectious diseases.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Blood Cell Refresh</h3>
+                    <p>Stimulates production of new blood cells, keeping your circulatory system healthy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How long does the entire process take?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        The entire process from registration to recovery typically takes 45-60 minutes. Actual blood donation takes only 10-15 minutes.
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Is blood donation painful?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You may feel a brief pinch when the needle is inserted, but the donation process itself is generally painless.
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How often can I donate blood?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You can donate whole blood every 56 days (approximately 8 weeks). Platelet donations can be more frequent.
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What should I do after donation?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Drink plenty of fluids, avoid strenuous exercise for 24 hours, and eat iron-rich foods. Avoid alcohol for 8 hours.
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I donate if I have tattoos?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, if the tattoo was applied at a licensed facility and has fully healed (usually 3-6 months).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rishtey Khoon Ke</h3>
+                    <p>Making blood donation accessible and safe for everyone in need.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="donation.html">Donation Info</a></p>
+                    <p><a href="donors.html">Find Donors</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Need Help?</h3>
+                    <p>Helpline: +92 300 123 4567</p>
+                    <p>Email: help@rishteykhoonke.org</p>
+                    <p>24/7 Emergency Support</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Rishtey Khoon Ke. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+        
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+            const span = element.querySelector('span');
+            span.textContent = faqItem.classList.contains('active') ? '−' : '+';
+        }
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
