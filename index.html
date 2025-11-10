@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishtey Khoon Ke - Blood Donation</title>
+    <style>
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6; 
+            color: #333; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: rgba(220, 38, 38, 0.95);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: bold; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .tagline { 
+            font-size: 0.9rem; 
+            opacity: 0.9; 
+            margin-top: 2px;
+        }
+        
+        /* Navigation */
+        .nav { 
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover { 
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        .donate-btn {
+            background: white;
+            color: #dc2626;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .donate-btn:hover {
+            background: #ffd700;
+            color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 140px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-100px, -100px) rotate(360deg); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #dc2626;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #dc2626;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-light {
+            background: white;
+        }
+        
+        .section-dark {
+            background: #f8fafc;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #dc2626;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Form Styles */
+        .form-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .form-full {
+            grid-column: 1 / -1;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #dc2626;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p {
+            color: #cbd5e0;
+            line-height: 1.6;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(220, 38, 38, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .nav.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">RKK</div>
+                <div>
+                    <div>Rishtey Khoon Ke</div>
+                    <div class="tagline">Save Lives With One Donation</div>
+                </div>
+            </div>
+            
+            <nav class="nav" id="mainNav">
+                <a href="#about">About</a>
+                <a href="#importance">Importance</a>
+                <a href="#process">Process</a>
+                <a href="#register">Register</a>
+                <a href="#contact">Contact</a>
+                <a href="#register" class="donate-btn">Donate Now</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Give the Gift of Life</h1>
+            <p>Every blood donation can save up to three lives. Join thousands of heroes in our mission to support patients in critical need.</p>
+            <div class="hero-buttons">
+                <a href="#register" class="btn">Become a Donor</a>
+                <a href="#process" class="btn btn-outline">Learn How</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="stats">
+                <div class="stat-card fade-in">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Lives Saved</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">5,000+</span>
+                    <span class="stat-label">Active Donors</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Cities Covered</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Emergency Service</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Why Blood Donation Matters</h2>
+            <p class="section-subtitle">Your single donation can make the difference between life and death for someone in need</p>
+            
+            <div class="features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💪</div>
+                    <h3>Who Can Donate?</h3>
+                    <p>Healthy individuals aged 18-65, weighing at least 50kg, with no serious health conditions. Regular health check-ups ensure donor safety.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🩺</div>
+                    <h3>Health Benefits</h3>
+                    <p>Regular donation helps maintain healthy iron levels, reduces cardiovascular risk, and provides free health screening for donors.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Save Lives</h3>
+                    <p>Your donation helps accident victims, surgery patients, cancer fighters, and those with blood disorders. Be someone's hero today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Simple Donation Process</h2>
+            <p class="section-subtitle">From registration to donation - we make the entire process smooth and comfortable</p>
+            
+            <div class="features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">1</div>
+                    <h3>Register Online</h3>
+                    <p>Fill our simple form with basic details. It takes less than 2 minutes to complete your registration.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">2</div>
+                    <h3>Health Screening</h3>
+                    <p>Quick health check-up to ensure you're eligible to donate. We maintain highest safety standards.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">3</div>
+                    <h3>Donate Blood</h3>
+                    <p>Comfortable donation process takes only 10-15 minutes. Our trained staff ensures painless experience.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">4</div>
+                    <h3>Refresh & Recover</h3>
+                    <p>Enjoy refreshments and rest. Your body replaces the donated blood within 24-48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Join Our Life-Saving Mission</h2>
+            <p class="section-subtitle">Register as a blood donor and become someone's unexpected hero</p>
+            
+            <div class="form-container fade-in">
+                <form class="form-grid" action="https://docs.google.com/forms/d/e/1FAIpQLScZDYFW-KWWzytZr2K416ZMGl-tqfPPVhj3gnl0G-pFkWHsXA/formResponse" method="POST" target="_blank">
+                    <input class="form-input" type="text" name="entry.1077166742" placeholder="Full Name" required>
+                    <input class="form-input" type="tel" name="entry.1729316888" placeholder="Phone Number" required>
+                    <input class="form-input" type="email" name="entry.123456789" placeholder="Email Address">
+                    <input class="form-input" type="number" name="entry.987654321" placeholder="Age" min="18" max="65">
+                    <select class="form-input" name="entry.2136854388" required>
+                        <option value="">Select Blood Group</option>
+                        <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                        <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                    </select>
+                    <select class="form-input" name="entry.1453907665" required>
+                        <option value="">Registering As</option>
+                        <option>Blood Donor</option>
+                        <option>Need Blood</option>
+                        <option>Both</option>
+                    </select>
+                    <input class="form-input form-full" type="text" name="entry.1473301011" placeholder="City / Location" required>
+                    <textarea class="form-input form-full" name="entry.555555555" placeholder="Additional Message (Optional)" rows="3"></textarea>
+                    <div class="form-full">
+                        <button type="submit" class="submit-btn">Join as Life Saver</button>
+                    </div>
+                </form>
+                
+                <p style="text-align: center; margin-top: 2rem; color: #666;">
+                    <small>Or fill the form directly: 
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScZDYFW-KWWzytZr2K416ZMGl-tqfPPVhj3gnl0G-pFkWHsXA/viewform" 
+                           target="_blank" 
+                           style="color: #dc2626; font-weight: bold;">
+                            Open Google Form
+                        </a>
+                    </small>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">We're Here to Help</h2>
+            <p class="section-subtitle">Contact us for any questions or emergency blood requirements</p>
+            
+            <div class="features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📞</div>
+                    <h3>Emergency Helpline</h3>
+                    <p>+92 300 123 4567<br>Available 24/7 for urgent blood requirements</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✉️</div>
+                    <h3>Email Support</h3>
+                    <p>help@rishteykhoonke.org<br>We respond within 2 hours</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Visit Centers</h3>
+                    <p>Multiple locations across major cities. Find the nearest donation center.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rishtey Khoon Ke</h3>
+                    <p>Connecting blood donors with those in need. Together, we can save millions of lives through voluntary blood donation.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about" style="color: #cbd5e0; text-decoration: none;">About Us</a></p>
+                    <p><a href="#process" style="color: #cbd5e0; text-decoration: none;">Donation Process</a></p>
+                    <p><a href="#register" style="color: #cbd5e0; text-decoration: none;">Become Donor</a></p>
+                    <p><a href="#contact" style="color: #cbd5e0; text-decoration: none;">Contact</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Emergency Contacts</h3>
+                    <p>Helpline: +92 300 123 4567</p>
+                    <p>Email: emergency@rishteykhoonke.org</p>
+                    <p>WhatsApp: +92 300 123 4568</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Rishtey Khoon Ke. All rights reserved. | Designed with ❤️ for humanity</p>
+                <p style="margin-top: 0.5rem;">Every drop counts. Every donor matters.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Add fade-in animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all feature cards and stats
+        document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const form = this;
+            setTimeout(() => {
+                form.reset();
+                alert('Thank you for registering! We will contact you soon.');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
