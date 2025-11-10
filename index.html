@@ -71,10 +71,10 @@
             color: var(--logo-gold);
         }
         
-        /* Navigation - Button ALWAYS VISIBLE */
+        /* Navigation - All buttons same style */
         .nav { 
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             align-items: center;
         }
         
@@ -94,12 +94,13 @@
             transform: translateY(-2px);
         }
         
+        /* Urgent Need Button - Same style as other nav buttons */
         .donate-btn {
             background: var(--logo-white);
             color: var(--logo-red);
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 25px;
-            font-weight: bold;
+            font-weight: 500;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
         }
@@ -496,7 +497,7 @@
                 <a href="index.html" class="active">Home</a>
                 <a href="donation.html">Donation Info</a>
                 <a href="donors.html">Find Donors</a>
-                <a href="donors.html" class="donate-btn">Urgent Need?</a>
+                <a href="donors.html" class="donate-btn">Urgent Need</a>
             </nav>
             
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
