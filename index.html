@@ -433,10 +433,12 @@
                 padding: 120px 1.5rem 60px;
                 text-align: center;
                 background: 
-                    linear-gradient(rgba(220, 38, 38, 0.9), rgba(185, 28, 28, 0.9)),
+                    linear-gradient(90deg, rgba(220, 38, 38, 0.9) 30%, rgba(220, 38, 38, 0.7) 100%),
                     url('https://i.ibb.co/5hNtMKQL/front-view-woman-holding-paper-heart-with-heartbeat.jpg');
                 background-size: cover;
-                background-position: center;
+                background-position: right center; /* MOBILE MEIN BHI RIGHT SIDE PE RAHEGI */
+                background-repeat: no-repeat;
+                min-height: 70vh;
             }
             
             .hero-text {
@@ -472,6 +474,26 @@
             .btn {
                 width: 250px;
                 text-align: center;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero {
+                background: 
+                    linear-gradient(rgba(220, 38, 38, 0.9), rgba(185, 28, 28, 0.9)),
+                    url('https://i.ibb.co/5hNtMKQL/front-view-woman-holding-paper-heart-with-heartbeat.jpg');
+                background-size: cover;
+                background-position: center center; /* Very small screens pe center */
+                background-repeat: no-repeat;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
         }
         
