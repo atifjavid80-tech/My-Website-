@@ -9,7 +9,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --logo-red: #9F0C11; /* NEW RED COLOR */
+            --logo-red: #9F0C11;
             --logo-dark-red: #7a090d;
             --logo-gold: #ffd700;
             --logo-white: #ffffff;
@@ -103,10 +103,6 @@
             font-weight: 500;
             transition: all 0.3s ease;
             border: 2px solid var(--logo-white);
-            /* FORCE VISIBILITY */
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
         }
         
         .donate-btn:hover {
@@ -117,7 +113,7 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section with NEW BLOOD DONATION IMAGE */
+        /* Hero Section with PROPER BACKGROUND IMAGE */
         .hero {
             background: 
                 linear-gradient(90deg, rgba(159, 12, 17, 0.85) 40%, rgba(159, 12, 17, 0.5) 100%),
@@ -320,7 +316,7 @@
         /* Quick Links - 4 BOXES IN ONE LINE */
         .quick-links {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 boxes in one line */
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
             margin-top: 3rem;
         }
@@ -423,13 +419,6 @@
                 display: flex;
             }
             
-            /* MOBILE MENU MEIN BHI BUTTON VISIBLE */
-            .nav.active .donate-btn {
-                display: flex !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-            }
-            
             .mobile-menu-btn {
                 display: block;
             }
@@ -438,7 +427,7 @@
                 padding: 120px 1.5rem 60px;
                 text-align: center;
                 background: 
-                    linear-gradient(90deg, rgba(159, 12, 17, 0.7) 30%, rgba(159, 12, 17, 0.4) 100%), /* NEW COLOR WITH LESS OPACITY */
+                    linear-gradient(90deg, rgba(159, 12, 17, 0.7) 30%, rgba(159, 12, 17, 0.4) 100%),
                     url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
                 background-size: cover;
                 background-position: right center;
@@ -497,7 +486,7 @@
         @media (max-width: 480px) {
             .hero {
                 background: 
-                    linear-gradient(90deg, rgba(159, 12, 17, 0.6) 20%, rgba(159, 12, 17, 0.3) 100%), /* NEW COLOR WITH EVEN LESS OPACITY */
+                    linear-gradient(90deg, rgba(159, 12, 17, 0.6) 20%, rgba(159, 12, 17, 0.3) 100%),
                     url('https://images.unsplash.com/photo-1576158113986-1d2ae47dac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
                 background-size: cover;
                 background-position: right center;
@@ -564,7 +553,7 @@
         </div>
     </header>
 
-    <!-- Hero Section with NEW BLOOD DONATION IMAGE -->
+    <!-- Hero Section with PROPER BACKGROUND IMAGE -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text fade-in">
