@@ -41,20 +41,17 @@
             font-weight: bold; 
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            text-decoration: none;
+            color: white;
         }
         
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: white;
+        .logo-img {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #dc2626;
-            font-weight: bold;
-            font-size: 1.2rem;
+            object-fit: cover;
+            border: 2px solid white;
         }
         
         .tagline { 
@@ -435,6 +432,15 @@
             .form-container {
                 padding: 2rem 1.5rem;
             }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
         }
         
         /* Animation */
@@ -458,13 +464,13 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="logo">
-                <div class="logo-icon">RKK</div>
+            <a href="#" class="logo">
+                <img src="https://drive.google.com/uc?id=12TZB4S5rSkDyTPPK9muw4doXGOfFERRM" alt="Rishtey Khoon Ke Logo" class="logo-img">
                 <div>
                     <div>Rishtey Khoon Ke</div>
                     <div class="tagline">Save Lives With One Donation</div>
                 </div>
-            </div>
+            </a>
             
             <nav class="nav" id="mainNav">
                 <a href="#about">About</a>
