@@ -113,10 +113,11 @@
             border-color: var(--logo-gold);
         }
         
-        /* Hero Section with Background Image - Waisa hi color rakha hai */
+        /* Hero Section with Light Background Image */
         .hero {
-            background: linear-gradient(135deg, var(--logo-red), var(--logo-dark-red)), 
-                        url('https://images.unsplash.com/photo-1584634731339-252c581abfc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover;
+            background: 
+                linear-gradient(135deg, rgba(159, 12, 17, 0.9), rgba(122, 9, 13, 0.9)),
+                url('https://images.unsplash.com/photo-1584634731339-252c581abfc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover;
             color: var(--logo-white);
             padding: 120px 2rem 60px;
             text-align: center;
@@ -134,6 +135,7 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: float 20s infinite linear;
+            z-index: 1;
         }
         
         @keyframes float {
@@ -200,6 +202,7 @@
             color: var(--logo-red);
         }
         
+        /* Rest of your existing CSS remains the same */
         /* Main Content */
         .container {
             max-width: 1200px;
@@ -584,7 +587,7 @@
         </div>
     </header>
 
-    <!-- Hero Section with Background Image - Color waisa hi rakha hai -->
+    <!-- Hero Section with Background Image -->
     <section class="hero">
         <div class="hero-content">
             <h1>Find Blood Donors</h1>
