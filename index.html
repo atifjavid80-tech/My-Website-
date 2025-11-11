@@ -137,11 +137,16 @@
             position: relative;
             z-index: 2;
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
         }
         
         .hero-text {
             max-width: 600px;
             text-align: left;
+            flex: 1;
         }
         
         .hero h1 {
@@ -165,6 +170,36 @@
             gap: 1rem;
             justify-content: flex-start;
             flex-wrap: wrap;
+        }
+        
+        /* Save Life Icon Styles */
+        .save-life-icon {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--logo-white);
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+        
+        .save-life-icon i {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+        
+        .save-life-icon span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         .btn {
@@ -435,6 +470,11 @@
                 min-height: 70vh;
             }
             
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
             .hero-text {
                 text-align: center;
                 max-width: 100%;
@@ -450,6 +490,18 @@
             
             .hero-buttons {
                 justify-content: center;
+            }
+            
+            .save-life-icon {
+                margin-top: 2rem;
+            }
+            
+            .save-life-icon i {
+                font-size: 6rem;
+            }
+            
+            .save-life-icon span {
+                font-size: 1.3rem;
             }
             
             /* Quick Links - Mobile mein 2 boxes per line */
@@ -501,6 +553,14 @@
                 font-size: 1rem;
             }
             
+            .save-life-icon i {
+                font-size: 5rem;
+            }
+            
+            .save-life-icon span {
+                font-size: 1.2rem;
+            }
+            
             /* Quick Links - Very small screens pe 1 box per line */
             .quick-links {
                 grid-template-columns: 1fr;
@@ -529,6 +589,7 @@
             animation: fadeInUp 0.6s ease-out;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -563,6 +624,12 @@
                     <a href="donors.html" class="btn">Find Blood Donors</a>
                     <a href="donation.html" class="btn btn-outline">Learn About Donation</a>
                 </div>
+            </div>
+            
+            <!-- Save Life Icon - Right Side -->
+            <div class="save-life-icon fade-in">
+                <i class="fas fa-heartbeat"></i>
+                <span>Save Life</span>
             </div>
         </div>
     </section>
