@@ -137,6 +137,9 @@
             position: relative;
             z-index: 2;
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .hero-text {
@@ -165,6 +168,15 @@
             gap: 1rem;
             justify-content: flex-start;
             flex-wrap: wrap;
+        }
+        
+        /* Hero Icon Styles - RIGHT SIDE */
+        .hero-icon {
+            height: 80%;
+            max-height: 400px;
+            width: auto;
+            opacity: 0.9;
+            z-index: 2;
         }
         
         .btn {
@@ -435,6 +447,11 @@
                 min-height: 70vh;
             }
             
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
             .hero-text {
                 text-align: center;
                 max-width: 100%;
@@ -450,6 +467,13 @@
             
             .hero-buttons {
                 justify-content: center;
+            }
+            
+            /* Hero Icon Mobile */
+            .hero-icon {
+                height: 150px;
+                margin: 2rem auto 0;
+                display: block;
             }
             
             /* Quick Links - Mobile mein 2 boxes per line */
@@ -564,6 +588,8 @@
                     <a href="donation.html" class="btn btn-outline">Learn About Donation</a>
                 </div>
             </div>
+            <!-- YEH LINE ADD KI HAI - Right side mein icon -->
+            <img src="https://i.ibb.co/ZptXP1Kc/RKK-Logo.png" alt="RKK-Logo" class="hero-icon">
         </div>
     </section>
 
